@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            width: 70%;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Amount</th>
+            <th>From Curency</th>
+            <th>To Curency</th>
+
+        </tr>
+    <tr>
+        <th>
+            <input type="text" id="0">
+        </th>
+        <th>
+            <select name="name" id="01">
+                <option value="VND1" name="VN1" id="1">VietNam</option>
+                <option value="USD1" name="US1" id="2">USD</option>
+            </select>
+        </th>
+        <th>
+            <select name="name1" id="02">
+                <option value="USD2" name="US2" id="3">USD</option>
+                <option value="VND2" name="VN2" id="4">VietNam</option>
+            </select>
+        </th>
+        <th><button onclick="ham()">convert</button></th>
+    </tr>
+        <tr>
+            <td style="color: blue">Result: </td>
+            <td id="kqq" style="color: blue"></td>
+            <td id="donvii" style="color: blue"></td>
+        </tr>
+    </table>
+<script>
+function ham() {
+    let kq;
+    let donvi;
+    let a=document.getElementById("0").value;
+    //alert(a);
+    let b=document.getElementById("01").value;
+    //alert(b);
+    let c=document.getElementById("02").value;
+    // alert(c);
+    if (b=="VND1"&&c=="USD2") {kq=parseInt(a)/20000; donvi="USD";}
+    if (b=="VND1"&&c=="VND2"){ kq=parseInt(a); donvi="VND";}
+    if (b=="USD1"&&c=="VND2"){ kq=parseInt(a)*20000; donvi="VND";}
+    if (b=="USD1"&&c=="USD2"){ kq=parseInt(a); donvi="USD";}
+
+    document.getElementById('kqq').innerHTML=kq;
+    document.getElementById('donvii').innerHTML=donvi;
+}
+</script>
+</body>
+</html>

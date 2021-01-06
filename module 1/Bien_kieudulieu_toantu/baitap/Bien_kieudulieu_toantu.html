@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let physic;
+    let chemic;
+    let math;
+    physic= parseInt(prompt("nhập điểm lý"));
+    chemic=parseInt(prompt("nhập điểm hóa"));
+    math=parseInt(prompt("nhập điểm toán"));
+   let sum = (physic + chemic + math);
+   let average=sum/3;
+    document.write("diem tong: "+sum);
+    document.write("</br>")
+    document.write("diem trung binh cong: "+average);
+</script>
+<script>
+    let C;
+    C=parseInt(prompt("nhập độ C"));
+    let F=9*C/5+32;
+    document.write("</br>");
+    document.write("độ C: "+C);
+    document.write("</br>");
+    document.write("độ F: "+F);
+</script>
+<script>
+    let Rad;
+    Rad=parseInt(prompt("nhập bán kính hình tròn (cm): "));
+    let AreaOfCicle=3.14*Rad*Rad;
+    let chuVi=2*3.14*Rad;
+    document.write("</br>");
+    document.write("diện tích hình tròn là (cm): "+AreaOfCicle)
+    document.write("</br>");
+    document.write("chu vi hình tròn là (cm): "+chuVi)
+</script>
+</body>
+</html>

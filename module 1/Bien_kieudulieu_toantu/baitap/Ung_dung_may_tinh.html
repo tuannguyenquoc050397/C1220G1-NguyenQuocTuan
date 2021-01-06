@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        td,th{
+
+        }
+        table{
+            width: 40%;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <caption><h2>Caculator</h2></caption>
+    <br>
+    <tr>
+        <td colspan="2"><input type="text" id="giatri1"> </td>
+        <td colspan="2"><input type="text" id="giatri2"> </td>
+    </tr>
+    <tr>
+        <td> <button id="Add" onclick="add()" >Addition(+)</button></td>
+        <td> <button id="Sub" onclick="sub()">Subtraction(-)</button></td>
+        <td> <button id="Mul" onclick="mul()">Multiplication(X)</button></td>
+        <td> <button id="Div" onclick="div()">Division(/)</button></td>
+    </tr>
+    <br>
+    <tr>
+        <Td id="add1"> </Td>
+        <Td id="sub1"> </Td>
+        <Td id="mul1"> </Td>
+        <Td id="div1"> </Td>
+    </tr>
+</table>
+<script>
+    function add(operator) {
+        let a=document.getElementById("giatri1").value;
+        let b=document.getElementById("giatri2").value;
+        let Resultadd= "Result Addition" + (parseInt(a)+parseInt(b));
+        document.getElementById("add1").innerHTML=Resultadd;
+    }
+    function sub() {
+        let a=document.getElementById("giatri1").value;
+        let b=document.getElementById("giatri2").value;
+        let Resultsub= "Result Subtraction" + (parseInt(a)-parseInt(b));
+        document.getElementById("sub1").innerHTML=Resultsub;
+    }
+    function mul() {
+        let a=document.getElementById("giatri1").value;
+        let b=document.getElementById("giatri2").value;
+        let Resultmul= "Result Multiplication" + (parseInt(a)*parseInt(b));
+        document.getElementById("mul1").innerHTML=Resultmul;
+    }
+    function div() {
+        let a=document.getElementById("giatri1").value;
+        let b=document.getElementById("giatri2").value;
+        let Resultdiv="Result Division"+(parseInt(a)/parseInt(b));
+        document.getElementById("div1").innerHTML=Resultdiv;
+    }
+</script>
+</body>
+</html>
