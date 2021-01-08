@@ -16,7 +16,8 @@
     let dayRents=parseInt(prompt("Bạn muốn ở đây bao lâu?"));
     let typeSevvice=prompt("Bạn muốn dùng loại dịch vụ nào?");
     let typeRoom=prompt("Bạn muốn loại phòng nào?")
-    let giaDichvu=(typeSevvice=="Villa")?500:(typeSevvice=="House")?300:100;
+    let giaDichvu=parseInt((typeSevvice=="Villa")?500:(typeSevvice=="House")?300:100);
+    console.log(giaDichvu);
 </script>
 </body>
 </html>

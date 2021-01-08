@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let diemCK=parseFloat(prompt("hay nhap diem cuoi ky"));
+    let diemGK=parseFloat(prompt("hay nhap diem giua ky"));
+    if (10>diemCK && diemCK>=8.5){
+        if (diemGK>5){
+            alert("Diem A");
+        }else {
+            alert("Diem B");
+        }
+    }else if(8.5>diemCK && diemCK>=7.0){
+        if (diemGK>5){
+            alert("diem B");
+        }else{
+            alert("diem C");
+        }
+    }else if(7.0>diemCK && diemCK>=5.5){
+        if(diemGK>5){
+            alert("diem C")
+        }else {
+            alert("diem D")
+        }
+    }else if (5.5>diemCK &&diemCK>=4.0){
+        alert("diem D")
+    }else{
+        alert("diem F")
+    }
+</script>
+</body>
+</html>

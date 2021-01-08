@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let weight=parseFloat(prompt("Please, Enter your weight (kg)"));
+    let height=parseFloat(prompt("Please, Enter your height (m)"));
+    let bmi=weight/(height*height);
+    let result;
+    if(bmi<18.5){
+        result="Underweight";
+    }else if(18.5<=bmi<25){
+        result="Normal";
+    }else if(25<bmi<=30){
+        result="Overweight";
+    } else {
+        result = "Obese";
+    }
+    document.write("Your weight: "+weight);
+    document.write("Your height: "+height);
+    document.write("BMI: "+ bmi);
+    document.write("result: "+result);
+</script>
+</body>
+</html>

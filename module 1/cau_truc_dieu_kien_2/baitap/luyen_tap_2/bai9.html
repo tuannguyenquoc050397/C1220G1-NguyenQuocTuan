@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th style="width: 30px; background-color: yellow" colspan="5">Kiểm tra 3 số a, b, c có phải là cạnh tam giác
+            ko?
+        </th>
+    </tr>
+    <tr>
+        <td><input type="text" id="a" placeholder="nhập cạnh a"></td>
+        <td><input type="text" id="b" placeholder="nhập cạnh b"></td>
+        <td><input type="text" id="c" placeholder="nhập cạnh c"></td>
+        <td>
+            <button onclick="f1()" id="x" style="height: 25px;width: 500px">ấn vào đây</button>
+        </td>
+    </tr>
+</table>
+<script>
+    function f1() {
+        let a = parseInt(document.getElementById("a").value);
+        let b = parseInt(document.getElementById("b").value);
+        let c = parseInt(document.getElementById("c").value);
+        console.log(a);
+        console.log(b);
+        console.log(c);
+        if (a > 0 && b > 0 && c > 0) {
+            if ((a + b) > c && (a + c) > b && (b + c) > a) {
+                document.getElementById("x").innerText = "a, b, c là 3 cạnh của 1 tam giác";
+            } else {
+                document.getElementById("x").innerText = "a, b, c không là 3 cạnh của 1 tam giác";
+            }
+        }
+    }
+</script>
+</body>
+</html>

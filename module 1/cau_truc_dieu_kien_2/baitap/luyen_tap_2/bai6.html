@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td style="width: 30px; background-color: yellow" colspan="3">Giải phương trình: aX + b = c</td>
+        <td></td>
+    </tr>
+    <td><input type="text" id="a" placeholder="nhập a" ></td>
+    <td><input type="text" id="b" placeholder="nhập b" ></td>
+    <td><input type="text" id="c" placeholder="nhập c" ></td>
+    <td><button onclick="f1()" id="x" style="height: 25px;width: 500px">ấn vào đây</button> </td>
+</table>
+<script>
+    function f1() {
+        let a=document.getElementById("a").value;
+        let b=document.getElementById("b").value;
+        let c=document.getElementById("c").value;
+        let result=(c-b)/a;
+        document.getElementById("x").innerText="giá trị X là: " + result;
+    }
+</script>
+</body>
+</html>

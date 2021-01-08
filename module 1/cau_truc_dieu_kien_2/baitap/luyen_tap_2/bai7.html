@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td style="width: 30px; background-color: yellow" colspan="3">Giải phương trình: aX<sup>2</sup> + b + c =0</td>
+        <td></td>
+    </tr>
+    <td><input type="text" id="a" placeholder="nhập a" ></td>
+    <td><input type="text" id="b" placeholder="nhập b" ></td>
+    <td><input type="text" id="c" placeholder="nhập c" ></td>
+    <td><button onclick="f1()" id="x" style="height: 25px;width: 500px">ấn vào đây</button> </td>
+</table>
+<script>
+    function f1() {
+        let a=document.getElementById("a").value;
+        let b=document.getElementById("b").value;
+        let c=document.getElementById("c").value;
+        let d=b*b-4*a*c;
+        if (d<0) {
+            document.getElementById("x").innerText="vô nghiệm";
+        } else if(d==0){
+            let result=-b/(2*a);
+        document.getElementById("x").innerText="giá trị X là: " + result;
+        }else if (d>0) {
+            let result1 = (-b + Math.sqrt(d)) / (2 * a);
+            let result2 = (-b - Math.sqrt(d)) / (2 * a);
+            document.getElementById("x").innerText = "phương trình có 2 nghiệm X1=" + result1 + "và X2=" + result2;
+        }
+    }
+</script>
+</body>
+</html>

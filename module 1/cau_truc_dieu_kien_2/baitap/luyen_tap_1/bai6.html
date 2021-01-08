@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let sales=parseInt(prompt("nhap doanh so: "));
+    let commissions;
+    if(sales<200&&sales>100){
+        commissions=sales*50000/20;
+        alert("so tien hoa hong ban nhan duoc: "+commissions +"VND");
+    }else if(sales<500&&sales>200){
+        commissions=sales*50000/17;
+        alert("so tien hoa hong ban nhan duoc: "+commissions + "VND");
+    }else if(sales<1000&&sales>500){
+        commissions=sales*50000/15;
+        alert("so tien hoa hong ban nhan duoc: "+commissions + "VND");
+    }else if(sales>1000){
+        commissions=sales*50000/10;
+        alert("so tien hoa hong ban nhan duoc: "+commissions + "VND");
+    }else {
+        alert("EROR 404");
+    }
+</script>
+
+</body>
+</html>

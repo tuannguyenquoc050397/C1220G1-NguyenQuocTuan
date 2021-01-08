@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th style="width: 30px; background-color: yellow" colspan="5">Tính lãi suất</th>
+    </tr>
+    <tr>
+        <td>số tiền gửi (triệu đồng):<input type="text" id="tien" placeholder="nhập số tiền gửi"> </td>
+        <td>số tháng gửi:<input type="text" id="thang" placeholder="nhập số tháng"> </td>
+        <td>
+            <button onclick="f1()" id="lai" style="height: 25px;width: 500px">Tiền lãi</button>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2"></td>
+        <td><button onclick="f2()" id="tong" style="height: 25px;width: 500px">Tổng tiền nhận</button></td>
+    </tr>
+</table>
+<script>
+function f1() {
+    let laiSuat=7/100;
+    let thang=parseInt(document.getElementById("thang").value);
+    let tienGui=parseInt(document.getElementById("tien").value);
+    let th1=parseInt(thang/12);
+    let th2=parseInt(thang%12);
+    let result=tienGui*laiSuat;
+    if (thang<24){
+        if (thang<12){
+            result=tienGui*laiSuat*thang/12
+        }else if(thang=12){
+            result=tienGui*laiSuat;
+        } else {
+            result=((tienGui*laiSuat)+tienGui)*laiSuat*th2;
+        }
+    }else {
+        if (thang%12!=0) {
+            for (i = 2; i < th1; i++) {
+                result = (result + tienGui) * laiSuat;
+            }
+            result = result * th2;
+        }else {
+            result=tienGui*laiSuat*th1;
+        }
+    }
+    document.getElementById("lai").innerText="tiền lãi: "+result;
+}
+function f2() {
+    let laiSuat=7/100;
+    let thang=parseInt(document.getElementById("thang").value);
+    let tienGui=parseInt(document.getElementById("tien").value);
+    let th1=parseInt(thang/12);
+    let th2=parseInt(thang%12);
+    let result=tienGui*laiSuat;
+    if (thang<24){
+        if (thang<12){
+            result=tienGui*laiSuat*thang/12
+        }else if(thang=12){
+            result=tienGui*laiSuat;
+        } else {
+            result=((tienGui*laiSuat)+tienGui)*laiSuat*th2;
+        }
+    }else {
+        if (thang%12!=0) {
+            for (i = 2; i < th1; i++) {
+                result = (result + tienGui) * laiSuat;
+            }
+            result = result * th2;
+        }else {
+            result=tienGui*laiSuat*th1;
+        }
+    }
+    result=result+tienGui;
+    document.getElementById("tong").innerText="tổng tiền: "+result;
+}
+</script>
+</body>
+</html>

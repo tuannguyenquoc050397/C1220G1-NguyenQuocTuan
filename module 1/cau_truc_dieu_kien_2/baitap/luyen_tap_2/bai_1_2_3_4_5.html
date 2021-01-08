@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+<tr>
+    <td style="width: 30px; background-color: yellow">độ F = C x 9/5 + 32</td>
+    <td></td>
+</tr>
+<tr>
+    <td><input type="text" id="1" placeholder="nhập độ C" ></td>
+    <td><button onclick="f1()" id="2" style="height: 25px;width: 500px">ấn vào đây</button> </td>
+</tr>
+<tr>
+<td style="width: 30px; background-color:darkturquoise">feet=m*3.2808</td>
+<td></td>
+</tr>
+<tr>
+    <td><input type="text" id="3" placeholder="đơn vị m" ></td>
+    <td><button onclick="f2()" id="4" style="height: 25px;width: 500px">ấn vào đây</button> </td>
+
+</tr>
+    <tr>
+        <td style="width: 30px; background-color:chartreuse">Tính diện tích hình vuông</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><input type="text" id="5" placeholder="nhập chiều dài cạnh" ></td>
+        <td><button onclick="f3()" id="6" style="height: 25px;width: 500px">ấn vào đây</button> </td>
+    </tr>
+    <tr>
+        <td style="width: 30px; background-color:aliceblue">Tính diện tích chữ nhật</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><input type="text" id="hcnl" placeholder="nhập chiều dài cạnh lớn" ></td>
+        <td><button onclick="f4()" id="dt" style="height: 25px;width: 500px">ấn vào đây</button> </td>
+    </tr>
+    <tr>
+        <td><input type="text" id="hcnb" placeholder="nhập chiều dài cạnh bé" ></td>
+    </tr>
+    <tr>
+        <td style="width: 30px; background-color:salmon">Diện tích tam giác vuông</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><input type="text" id="tgl" placeholder="nhập chiều dài cạnh kề 1" ></td>
+        <td><button onclick="f5()" id="tg" style="height: 25px;width: 500px">ấn vào đây</button> </td>
+    </tr>
+    <tr>
+        <td><input type="text" id="tgb" placeholder="nhập chiều dài cạnh kề 2" ></td>
+    </tr>
+    </table>
+<script>
+    function f1() {
+let a=document.getElementById("1").value;
+let result=a*9/5+32;
+document.getElementById("2").innerText="độ F là" + result;
+    }
+    function f2() {
+        let a=document.getElementById("3").value;
+        let result=a/3.2808;
+        document.getElementById("4").innerText="đơn vị feet là: " + result;
+    }
+    function f3() {
+        let a=document.getElementById("5").value;
+        let result=a**2;
+        document.getElementById("6").innerText="diện tích là: " + result;
+    }
+    function f4() {
+        let a=document.getElementById("hcnl").value;
+        let b=document.getElementById("hcnb").value;
+        let result=a*b;
+        document.getElementById("dt").innerText="diện tích là: " + result;
+    }
+    function f5() {
+        let a=document.getElementById("tgl").value;
+        let b=document.getElementById("tgb").value;
+        let result=a*b/2;
+        document.getElementById("tg").innerText="diện tích là: " + result;
+    }
+</script>
+</body>
+</html>

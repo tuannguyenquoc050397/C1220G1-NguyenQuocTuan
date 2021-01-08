@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td style="width: 30px; background-color: yellow" colspan="3">nhập số tuổi</td>
+    </tr>
+<tr>
+    <td><input type="text" id="a" placeholder="nhập tuổi" ></td>
+    <td><button onclick="f1()" id="x" style="height: 25px;width: 500px">ấn vào đây</button> </td>
+
+</tr>
+</table>
+<script>
+function f1() {
+    let a=document.getElementById("a").value;
+    if(a>0&&a<120){
+        document.getElementById("x").innerText=a+': là tuổi của một người';
+    } else{
+        document.getElementById("x").innerText=a+': không là tuổi của một người';
+    }
+}
+</script>
+
+</body>
+</html>

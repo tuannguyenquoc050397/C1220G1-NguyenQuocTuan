@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th style="width: 30px; background-color: yellow" colspan="5">Tính tiền điện: sốchữ nhân 2000đ </th>
+    </tr>
+    <tr>
+        <td><input type="text" id="a" placeholder="nhập số chữ" ></td>
+        <td><button onclick="f()" id="x" style="height: 25px;width: 500px">ấn vào đây</button> </td>
+    </tr>
+    <script>
+        function f() {
+                let a=document.getElementById("a").value;
+                let result=a*2000;
+                document.getElementById("x").innerText="giá tiền điện tháng này: "+result +"đ";
+        }
+    </script>
+</table>
+
+</body>
+</html>

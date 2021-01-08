@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>Tiền cước điện thoại 1 phút:</td>
+        <td>890đ</td>
+    </tr>
+    <tr>
+        <td><input type="text" id="1" placeholder="nhập số phút" ></td>
+        <td><button onclick="f()" id="2" style="height: 25px;width: 500px">ấn vào đây</button> </td>
+
+    </tr>
+</table>
+<script>
+    function f() {
+let mins=document.getElementById("1").value;
+let result=mins*980;
+document.getElementById("2").innerText="số tiền cước tháng này: " +result + "đ";
+    }
+</script>
+</body>
+</html>

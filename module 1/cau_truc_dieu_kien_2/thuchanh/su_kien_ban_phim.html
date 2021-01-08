@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="docReady()">
+<img src="https://static.gamehub.vn/img/files/2018/02/24/Goku_bad_father_1.jpg" id="myImage" style="position: absolute;left: 0;top: 0; width: 500px; height: 250px">
+</body>
+<script>
+
+    function moveup() {
+        let imgObj=document.getElementById("myImage");
+        imgObj.style.top=parseInt(imgObj.style.top) - 10 +"px";
+    }
+    function movedown() {
+        let imgObj=document.getElementById("myImage");
+        imgObj.style.top=parseInt(imgObj.style.top) +10 +"px";
+    }
+    function moverigth() {
+        let imgObj=document.getElementById("myImage");
+        imgObj.style.left=parseInt(imgObj.style.left)+ 10 +"px";
+    }
+    function moveleft() {
+        let imgObj=document.getElementById("myImage");
+        imgObj.style.left=parseInt(imgObj.style.left) -10 +"px";
+    }
+    function moveSelection(evt) {
+        switch (evt.keyCode) {
+            case 37:
+                moveleft();
+                break;
+            case 39:
+                moverigth();
+                break;
+            case 38:
+                moveup();
+                break;
+            case 40:
+                movedown();
+                break;
+        }
+    }
+    function docReady() {
+        window.addEventListener('keydown', moveSelection);
+    }
+
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th style="width: 30px; background-color: yellow" colspan="5">Thuế thu nhập cá nhân </th>
+    </tr>
+    <tr>
+        <td><input type="text" id="a" placeholder="nhập thu nhập tháng (triệu đồng)" ></td>
+        <td><button onclick="f()" id="x" style="height: 25px;width: 500px">ấn vào đây</button> </td>
+    </tr>
+    <script>
+        function f() {
+            let a=document.getElementById("a").value;
+            let result;
+            if(a<=5){
+                result=a*5/100;
+            }else if (a>5&&a<=10){
+                result=a*10/100-0.25;
+            }else if(a>10&&a<=18){
+                result=a*15/100-0.75;
+            }else if(a>18&&a<=32){
+                result=a*20/100-1.65;
+            }else if (a>32&&a<=52){
+                result=a*25/100-3.25;
+            }else if (a>52&&a<=80){
+                result=a*30/100-5.85;
+            }else {
+                result=a*35/100-9.85;
+            }
+            document.getElementById("x").innerText="thuế thu nhập cá nhân của bạn là: "+result+"triệu đồng";
+        }
+    </script>
+</table>
+
+</body>
+</html>

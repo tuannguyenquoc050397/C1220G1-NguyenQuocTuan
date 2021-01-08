@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+    <td><input type="text" id="month" ></td>
+    <td><button onclick="dayofmonth()" value="tinhsongay">Tính số ngày</button></td>
+    </tr>
+    <tr>
+        <td id="ketqua"></td>
+    </tr>
+</table>
+<script>
+
+    function dayofmonth() {
+        let result;
+        let value1=parseInt(document.getElementById("month").value);
+        console.log(value1);
+        switch (value1) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+               result="tháng" + value1 + ": có 31 ngày";
+               break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                result="tháng" + value1 + ": có 30 ngày";
+                break;
+            case 2:
+                result="tháng" + value1 + ": có 28 hoặc 29 ngày";
+                break;
+            default:
+                result="chỉ có tháng 1-12 thôi bạn à: ==!"
+        }
+        document.getElementById("ketqua").innerHTML=result;
+    }
+</script>
+</body>
+</html>
