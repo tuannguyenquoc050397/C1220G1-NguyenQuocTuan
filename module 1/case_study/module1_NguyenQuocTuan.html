@@ -3,21 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+<style>
+</style>
 </head>
 <body>
+<table>
+    <tr>
+        <td>Họ và tên</td><td><input type="text" id="name" placeholder="Nguyễn Văn A"></td>
+    </tr><tr>
+        <td>Số cmnd</td><td><input type="text" id="cmnd" placeholder="199563214"></td>
+    </tr><tr>
+        <td>Ngày sinh</td><td><input type="text" id="dayofbirth" placeholder="01/01/1999"></td>
+    </tr><tr>
+        <td>Địa chỉ</td><td><select name="diachi" id="diachi">
+    <option value="DN">Đà Nẵng</option>
+    <option value="QN">Quảng Nam</option>
+    <option value="H">Huế</option>
+    <option value="K">Khác</option>
+</select></td>
+    </tr><tr>
+        <td>Thẻ Vip</td><td><select name="thevip" id="thevip">
+    <option value="Diamond">Diamond</option>
+    <option value="Platium">Platium</option>
+    <option value="Gold">Gold</option>
+    <option value="Silver">Silver</option>
+    <option value="Member">Member</option>
+</select></td>
+    </tr><tr>
+        <td>Giảm giá</td><td><input type="text" id="giamgia" placeholder="10, 20,...(%)"></td>
+    </tr><tr>
+        <td>Số người</td><td><input type="text" id="songuoi" placeholder="1, 2, 3,..."></td>
+    </tr><tr>
+        <td>Số ngày thuê</td><td><input type="text" id="ngaythue" placeholder="1,2,3,..."></td>
+    </tr><tr>
+        <td>Dịch vụ</td><td><select name="dichvu" id="dichvu">
+    <option value="Villa">Villa</option>
+    <option value="House">House</option>
+    <option value="Room">Room</option>
+</select></td>
+    </tr><tr>
+    <td>Phòng</td><td><select name="phong" id="phong">
+    <option value="Vip">Vip</option>
+    <option value="Business">Business</option>
+    <option value="Normal">Normal</option>
+</select></td>
+    </tr>
+    <tr>
+        <td><input type="button" onclick="f()" value="tính tiền"></td>
+        <td id="tinhtien"></td>
+    </tr>
+    <tr>
+        <td id="name1" colspan="2"></td>
+    </tr>
+    <tr>
+        <td id="dichvu1" colspan="2"></td>
+    </tr>
+    <tr>
+        <td id="ngaythue1" colspan="2"></td>
+    </tr>
+    <tr>
+        <td id="giamgia1" colspan="2"></td>
+    </tr>
+</table>
 <script>
-    let name=prompt("Please, enter your name: ");
-    let cmnd=prompt("Please, enter your CMND: ");
-    let dayofbirth=prompt("Please, enter your dayofbirth");
-    let address=prompt("Please, enter your address");
-    let typeCustomer=prompt("Please, enter độ vip của bạn");
-    let coupon=prompt("Please, enter your coupon(phiếu giảm giá hehe)");
-    let soluong=prompt("Bạn đi bao nhiêu người ạ?");
-    let dayRents=parseInt(prompt("Bạn muốn ở đây bao lâu?"));
-    let typeSevvice=prompt("Bạn muốn dùng loại dịch vụ nào?");
-    let typeRoom=prompt("Bạn muốn loại phòng nào?")
-    let giaDichvu=parseInt((typeSevvice=="Villa")?500:(typeSevvice=="House")?300:100);
-    console.log(giaDichvu);
+function f() {
+    let name=document.getElementById("name").value;
+    let dichVu=document.getElementById("dichvu").value;
+    let dayRents=parseInt(document.getElementById("ngaythue").value);
+    let giamGia=parseInt(document.getElementById("giamgia").value);
+    let diachi=document.getElementById("diachi").value;
+    let thevip=document.getElementById("thevip").value;
+    let giamGiakhac;
+    let giaDichvu;
+    if (diachi="DN"){
+        giamGiakhac=20;
+    }else if(diachi="H"){
+        giamGiakhac=10;
+    }else if(diachi=QN){
+        giamGiakhac=5;
+    }else{
+        giamGiakhac=0;
+    }
+    if (dayRents>=2&&dayRents<=4){
+        giamGiakhac=giamGiakhac+10;
+    }else if(dayRents>4&&dayRents<=7){
+        giamGiakhac=giamGiakhac+20;
+    }else if(dayRents>7){
+        giamGiakhac=giamGiakhac+30;
+    }else {
+        giamGiakhac=giamGiakhac;
+    }
+    switch (thevip) {
+        case "Diamond":
+            giamGiakhac=giamGiakhac+15;
+            break;
+        case "Platium":
+            giamGiakhac=giamGiakhac+10;
+            break;
+        case "Gold":
+            giamGiakhac=giamGiakhac+5;
+            break;
+        case "Silver":
+            giamGiakhac=giamGiakhac+2;
+            break;
+        default:
+            giamGiakhac=giamGiakhac;
+    }
+    switch (dichVu) {
+        case "Villa":
+            giaDichvu=500;
+            break;
+        case "House":
+            giaDichvu=300;
+            break;
+        case "Room":
+            giaDichvu=100;
+            break;
+    }
+    let result=giaDichvu*dayRents*(1-giamGia/100)-giamGiakhac;
+    let tongGiamgia=giamGiakhac+(giamGia/100)*dayRents*giaDichvu;
+    document.getElementById("tinhtien").innerText=result+"$";
+    document.getElementById("name1").innerText="Khách hàng: "+name;
+    document.getElementById("ngaythue1").innerText="Số ngày thuê: "+dayRents;
+    document.getElementById("dichvu1").innerText="Loại dịch vụ: "+dichVu+ ": "+giaDichvu+ "$/ngày";
+    document.getElementById("giamgia1").innerText="Giảm giá: "+tongGiamgia+"$";
+}
 </script>
 </body>
 </html>

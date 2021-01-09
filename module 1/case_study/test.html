@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <td>Họ và tên</td><td><input type="text" id="name" value=""></td>
+    </tr><tr>
+    <td>Số cmnd</td><td><input type="text" id="cmnd" value=""></td>
+</tr><tr>
+    <td>Ngày sinh</td><td><input type="text" id="dayofbirth" value="" ></td>
+</tr><tr>
+    <td>Địa chỉ</td><td><input type="text" id="address" value=""></td>
+</tr><tr>
+    <td>Thẻ Vip</td><td><input type="text" id="vip" value=""></td>
+</tr><tr>
+    <td>Giảm giá</td><td><input type="text" id="giamgia" value=""></td>
+</tr><tr>
+    <td>Số người</td><td><input type="text" id="songuoi" value=""></td>
+</tr><tr>
+    <td>Số ngày thuê</td><td><input type="text" id="ngaythue" value=""></td>
+</tr><tr>
+    <td>loại dịch vụ</td><td><input type="text" id="dichvu" value=""></td>
+</tr><tr>
+    <td>loại phòng</td><td><input type="text" id="phong" value=""></td>
+</tr>
+</table>
+<script>
+    let name=prompt("Please, enter your name: ");
+    document.getElementById("name").value=name;
+    let cmnd=prompt("Please, enter your CMND: ");
+    document.getElementById("name").value=name;
+    let dayofbirth=prompt("Please, enter your dayofbirth");
+    document.getElementById("name").value=name;
+    let address=prompt("Please, enter your address");
+    document.getElementById("name").value=name;
+    let typeCustomer=prompt("Please, enter độ vip của bạn");
+    document.getElementById("name").value=name;
+    let coupon=prompt("Please, enter your coupon(phiếu giảm giá hehe)");
+    document.getElementById("name").value=name;
+    let soluong=prompt("Bạn đi bao nhiêu người ạ?");
+    document.getElementById("name").value=name;
+    let dayRents=parseInt(prompt("Bạn muốn ở đây bao lâu?"));
+    document.getElementById("name").value=name;
+    let typeSevvice=prompt("Bạn muốn dùng loại dịch vụ nào?");
+    document.getElementById("name").value=name;
+    let typeRoom=prompt("Bạn muốn loại phòng nào?")
+    document.getElementById("name").value=name;
+    let giaDichvu=parseInt((typeSevvice=="Villa")?500:(typeSevvice=="House")?300:100);
+    console.log(giaDichvu);
+</script>
+</body>
+</html>
