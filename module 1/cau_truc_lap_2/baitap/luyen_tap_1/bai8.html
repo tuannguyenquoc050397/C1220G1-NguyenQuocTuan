@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="doanso()" id="game">Chơi</button>
+<script>
+    function TaoSoNgauNhien(min, max){
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+    function doanso(){
+        let a=parseInt(prompt("bạn muốn đoán trong khoảng nào? nhập số min"));
+        let b=parseInt(prompt("bạn muốn đoán trong khoảng nào? nhập số max"));
+        let c=TaoSoNgauNhien(a,(b+1));
+        console.log(c);
+        for(let i=0;i<3;i++){
+            let d=parseInt(prompt("nhập số bạn chọn: "));
+            if (d==c){
+                alert("chúc mừng bạn đã đoán đúng số: "+d);
+                break;
+            }else if(d>c){
+                alert("bé hơn bạn ơi :)");
+            }else if(d<c){
+                alert("lớn hơn á :)");
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

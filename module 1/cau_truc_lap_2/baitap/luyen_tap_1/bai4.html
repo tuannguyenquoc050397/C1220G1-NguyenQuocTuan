@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    for(let i=0, f1=1, f2=1, f0=0;;i++){
+        console.log(f0);
+        f0=f1;
+        f1=f2;
+        f2=f0+f1;
+        if (f0>0&&f0%5==0){
+            console.log(f0);
+            break;
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>JavaScript Loops</h2>
+<button onclick="f1()">bài 1</button>
+<p id="demo"></p>
+<input id="2" type="text" placeholder="nhập vào 1 số lớn hơn 0">
+<button onclick="f2()">bài 2</button>
+<p id="3"></p>
+<script>
+    function f1(){
+        let text = "";
+        let i;
+        for (i = 0; i < 5; i++) {
+            text += "The number is " + i + "<br>";
+        }
+        document.getElementById("demo").innerHTML = text;
+    }
+    function f2() {
+let a=parseInt(document.getElementById("2").value);
+let total=0;
+for (let i=1;i<=a;i++){
+    total+=i;
+}
+document.getElementById("3").innerText="tổng từ 1 đến " + a+ " là: "+ total;
+    }
+</script>
+</body>
+</html>
