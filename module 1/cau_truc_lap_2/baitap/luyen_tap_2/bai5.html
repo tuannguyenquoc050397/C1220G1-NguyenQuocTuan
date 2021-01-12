@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let tienGui=parseInt(prompt("số tiền bạn gửi (triệu đồng)"));
+    let thang=parseInt(prompt("số tháng bạn gửi"));
+    console.log(thang);
+    let tienLai=tienGui*1/100;
+    if(thang==1){
+        alert("tiền lãi sau "+thang+" tháng của bạn là: "+tienLai+" triệu đồng");
+    }else if(thang>1) {
+        for (i = 2; i <= thang; i++) {
+            tienLai = (tienLai + tienGui) * 1 / 100;
+        }
+        alert("tiền lãi sau "+thang+" tháng của bạn là: "+tienLai+" triệu đồng");
+    }
+</script>
+</body>
+</html>

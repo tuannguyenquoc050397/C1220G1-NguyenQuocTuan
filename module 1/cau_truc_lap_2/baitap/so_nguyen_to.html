@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let N = 0;
+    let numbers = parseInt(prompt("nhập số lượng số nguyên tố cần in ra ^^"));
+    for (let i = 2, count = 1; count <= numbers; i++) {
+        N = 0;
+        for (j = 1; j <= i; j++) {
+            if (i % j == 0) {
+                N++;
+            }
+        }
+        if (N == 2) {
+            console.log(i);
+            count++;
+        }
+    }
+</script>
+</body>
+</html>

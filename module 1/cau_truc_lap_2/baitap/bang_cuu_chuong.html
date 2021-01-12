@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let sout;
+    let kq=0;
+    sout = "<table border='2' width='1000' cellspacing='0' cellpadding='5' style='background-color: #dddddd; border-collapse: separate'>"
+    for (i = 1; i < 10; i++) {
+        sout = sout + "<tr>";
+        for (j = 2; j < 10; j++) {
+            kq=i*j;
+            sout = sout + "<td>" + j+"x"+i+"="+kq + "</td>";
+        }
+        sout = sout + "</tr>";
+        kq=0;
+    }
+    sout = sout + "</table>";
+    document.write(sout);
+</script>
+</body>
+</html>
