@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p><input type="text" id="tudien" placeholder="nhap so tu 1 den 10"><button type="button" onclick="f()">click</button></p>
+<br><p id="1"></p>
+<script>
+    function f() {
+        let tiengViet=["1","2","3","4","5","6","7","8","9","10"];
+        let tiengAnh=["oăn","tu","thri","fo","fai","sit","seven","ei","nai","ten"];
+        let a=document.getElementById("tudien").value;
+        let count=0;
+        for(let i=0;i<10;i++){
+            if(a==tiengViet[i]){
+                document.getElementById("1").innerText="tieng anh cua "+a+" la "+tiengAnh[i];
+                count++;
+                break;
+            }
+
+        }
+        if(count==0){
+            alert("khong tim thay moi nhap lai");
+            document.getElementById("tudien").value="";
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let array=new Array();
+    let i;
+    let count=0;
+    for (i=0;i<10;i++){
+        array[i]=prompt("nhap phan tu so nguyen cua mang");
+    if(array.indexOf("V")==i){
+        array.splice(i,1);
+        count++;
+    }
+    }
+    for (let j=0;j<count;j++){
+        array.push(0);
+    }
+    alert(array);
+    // let a=[1,2,3,4,5];
+    // a.splice(2,1);
+    // console.log(a);
+</script>
+</body>
+</html>

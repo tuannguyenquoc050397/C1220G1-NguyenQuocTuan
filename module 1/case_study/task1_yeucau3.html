@@ -8,25 +8,26 @@
 <script>
     let cmnd;
     let checkcmnd=false;
-     do{
+    do{
+
         cmnd=prompt("nhap so cmnd");
         console.log(cmnd.length);
-    if (cmnd.length==3){
-        if(0<=cmnd&&cmnd<=999){
-            alert("oke dung roi");
-            checkcmnd=false;
+        if (cmnd.length==3){
+            if(0<=cmnd&&cmnd<=999){
+                alert("oke dung roi");
+                checkcmnd=false;
+            }else {
+                alert("hay nhap lai");
+                checkcmnd=true;
+            }
         }else {
             alert("hay nhap lai");
             checkcmnd=true;
         }
-    }else {
-        alert("hay nhap lai");
-        checkcmnd=true;
-    }
-     }while (checkcmnd);
+    }while (checkcmnd);
     let dayRents;
     let checkdR=false;
-     do{
+    do{
         dayRents=prompt("nhap so ngay thue");
         if (dayRents>0){
             alert("oke dung roi");
@@ -35,7 +36,7 @@
             alert("hay nhap lai");
             checkdR=true;
         }
-     }while (checkdR);
+    }while (checkdR);
     let checkNS = false;
     do {
 
@@ -59,7 +60,7 @@
             checkNS = true;
         }
     } while (checkNS);
-let email=prompt("nhap email");
+    let email=prompt("nhap email");
 
 
 </script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let strA=prompt("nhap chuoi A");
+    let strB=prompt("nhap chuoi B");
+    let a=strA.length;
+    let b=strB.length;
+    let count=0;
+    if(a==b){
+        for(let i=0;i<a;i++){
+            if(strA.charCodeAt(i)!=strB.charCodeAt(i)){
+                alert("2 chuoi k giong nhau");
+                break;
+            }else{
+                count++;
+            }
+        }
+    }else{
+        alert("2 chuoi k giong nhau");
+    }
+    if (count==a){
+        alert("2 chuoi giong nhau")
+    }
+</script>
+</body>
+</html>

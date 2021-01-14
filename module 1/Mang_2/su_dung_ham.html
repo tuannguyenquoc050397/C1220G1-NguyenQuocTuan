@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //bai 1
+    // let myColor = ["Red", "Green", "White", "Black"];
+    // let a=myColor.join();
+    // console.log(a);
+    //bai 2
+    // let num=prompt("nhap 1 so");
+    // let result=num.charAt(0);
+    // for (i=0;i<num.length-1;i++){
+    //     let b=parseInt(num.charAt(i));
+    //     let c=parseInt(num.charAt(i+1));
+    //     if (b%2==0&&c%2==0){
+    //       result+="-"+c;
+    //     }else{
+    //         result+=c;
+    //     }
+    // }
+    // alert(result);
+    //bai 3
+    let UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let LOWER = 'abcdefghijklmnopqrstuvwxyz';
+    let str=prompt("nhap chuoi");
+    let result="";
+    for (let i=0;i<str.length;i++){
+        let a=str.charAt(i);
+        let hoa=UPPER.indexOf(a);
+        let thuong=LOWER.indexOf(a)
+        if(hoa!=-1){
+            result+=LOWER.charAt(hoa);
+        }else if(thuong!=-1){
+            result+=UPPER.charAt(thuong);
+        }else{
+            result+=a;
+        }
+    }
+    alert(result);
+
+</script>
+</body>
+</html>

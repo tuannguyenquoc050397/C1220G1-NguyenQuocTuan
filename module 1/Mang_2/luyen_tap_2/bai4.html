@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let str = prompt("nhap 1 chuoi");
+    let a = str.length;
+    let count = 0;
+    for (let i = 0; i < a; i++) {
+        if (str.charCodeAt(i) >= 65 && str.charCodeAt(i) <= 90) {
+            count++;
+        }else if(str.charCodeAt(i) >= 97 && str.charCodeAt(i) <= 120){
+            count++;
+        }
+
+    }
+    alert("so tu trong mang la: " + count)
+    console.log(a)
+</script>
+</body>
+</html>
