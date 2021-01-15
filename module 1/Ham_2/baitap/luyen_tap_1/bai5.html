@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let star=prompt("nhap ten ngoi sao");
+    let star1=["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe" , "Regulus"];
+    let star2=["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+    function check() {
+        let count=0;
+            for (let i=0;i<7;i++){
+                if (star==star1[i]){
+                    alert("ngoi sao vua nhap thuoc chom sao "+star2[i]);
+                    break;
+                }else {
+                    count++;
+                }
+            }
+            if (count==7){
+                alert("khong tim ra ngoi sao");
+            }
+    }
+    check();
+
+</script>
+</body>
+</html>

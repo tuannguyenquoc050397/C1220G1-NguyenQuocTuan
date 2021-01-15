@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function check() {
+        let arr=[];
+        let count=0;
+        let a=prompt("nhap vao 1 ky tu");
+        for(let i=0;i<10;i++){
+            arr[i]=prompt("nhap phan tu arr["+i+"]"+" cua mang");
+        }
+        for(let i=0;i<10;i++){
+            if (a==arr[i]){
+                count++;
+            }
+        }
+        if (count==0){
+            return -1;
+        }else{
+            return count;
+        }
+    }
+    console.log(check());
+</script>
+</body>
+</html>

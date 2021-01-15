@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function check() {
+        let a = prompt("nhap nao");
+        let str = "0123456789.";
+        for (i = 0; i < a.length; i++) {
+            if (str.indexOf(a.charAt(i)) == -1) {
+                alert("khong phai la so");
+            } else if (i == a.length - 1) {
+                if (a.charAt(0) != "." && a.charAt(a.length - 1) != ".") {
+                    alert("ban vua nhap 1 so");
+                } else {
+                    alert("khong phai la so");
+                }
+            }
+        }
+
+    }
+
+    check();
+</script>
+
+</body>
+</html>

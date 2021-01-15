@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // let numberInput=prompt("nhap vao 1 so nguyen duong");
+    // function isPrime(number){
+    //     let n=0;
+    //     for (let j = 1; j <= number; j++) {
+    //         if (number % j == 0) {
+    //             n++;
+    //         }
+    //     }
+    //     if (n == 2) {
+    //         return alert(number+" la so nguyen to")
+    //     }else {
+    //         return alert(number+" khong la so nguyen to")
+    //     }
+    // }
+    // isPrime(numberInput);
+    function isPrime(number){
+        let result = false;
+        let n=0;
+        for (let j = 1; j <= number; j++) {
+            if (number % j == 0) {
+                n++;
+            }
+        }
+        if (n == 2) {
+            result = true;
+        }
+        return result;
+    }
+    let data="";
+    for (let i=2;i<10000;i++){
+        if(isPrime(i)){
+        data+=i+"<br>";}
+    }
+    document.write(data);
+
+</script>
+</body>
+</html>
