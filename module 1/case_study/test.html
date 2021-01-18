@@ -10,40 +10,72 @@
 <button type="button" onclick="add()">ADD Customers</button>
 <button type="button" onclick="del()">DEL Customers</button>
 
-<table id="1"></table>
+<p id="1"></p>
 <script src="full_case1.js">
 </script>
 <script>
-
     let n;
+    let count=0;
     let arrCustomer=[];
     function add(){
         n=parseInt(prompt("nhập số lượng khách hàng muốn thêm"));
+        let m=n+count;
          let data= "";
-        for (let i=0;i<n;i++) {
-            arrCustomer[i] = new Array(3);
+        // for (let i=0;i<n;i++) {
+        //     arrCustomer[i] = new Array(3);
+        // }
+        for (let j=count;j<m;j++){
+             count++;
+            arrCustomer[j] = nameCustomer();
+            // arrCustomer[i][1]= cmndCustomer();
+            // arrCustomer[i][2]= birthdayCustomer();
+            //  data+="<tr><td>"+"khách hàng thứ "+(i+1)+": "+arrCustomer[i][0]+"</td></tr>"
         }
-        for (let i=0;i<n;i++){
-            arrCustomer[i][0] = nameCustomer();
-            arrCustomer[i][1]= cmndCustomer();
-            arrCustomer[i][2]= birthdayCustomer();
-             data+="<tr><td>"+"khách hàng thứ "+(i+1)+": "+arrCustomer[i]+"</td></tr>"
-        }
+        // document.getElementById("1").innerHTML=data;
+        show();
     }
-    console.log(arrCustomer);
-    // function del() {
-    //      alert("nhap ten Customer muon xoa");
-    //     let m=nameCustomer();
-    //      for (let i=0; i<n; i++){
-    //         if(arrCustomer[i][0]==m){
-    //                 arrCustomer.splice(i,1);
-    //         }else{
-    //             alert("Customer ko co trong danh sach");
-    //         }
-    //     }
-    //     console.log(arrCustomer);
-    //
-    // }
+    function show() {
+        let tableString = '<table border="1" style="border-collapse: separate">\n' +
+            '    <tr>\n' +
+            '        <th>STT</th>\n' +
+            '        <th>Tên</th>\n' +
+            '        <th>Sửa</th>\n' +
+            '    </tr>';
+        for (let i = 0; i < arrCustomer.length; i++) {
+            tableString += '<tr>\n' +
+                '        <td>' + (i + 1) + '</td>\n' +
+                '        <td>' + arrCustomer[i] + '</td>\n' +
+                '        <td> <button onclick="edit(' + i + ')">Sửa</button></td>\n' +
+                '    </tr>';
+        }
+        tableString += '</table>';
+        document.getElementById("1").innerHTML = tableString;
+    }
+    function edit(id) {
+        alert("hay nhap ten khach hang moi");
+        let newName=nameCustomer();
+        if (newName){
+            arrCustomer[id]=newName;
+        }
+    show();
+    }
+
+    function del() {
+         alert("nhap ten Customer muon xoa");
+        let nameDelete=nameCustomer();
+        let countdel=0;
+         for (let i=0; i<count; i++){
+            if(arrCustomer[i]==nameDelete){
+                    arrCustomer.splice(i,1);
+                    countdel++;
+                    break;
+            }
+        }
+         if(countdel==0){
+             alert("ko co ten trong danh sach");
+         }
+    show();
+    }
 
     // let arr=new Array(2);
     // arr[0]=new Array(2);
