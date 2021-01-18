@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str=prompt("nhập chuỗi");
+    function isPalindrome(){
+        let check=false;
+        let first=0;
+        let last=str.length-1;
+        if (first>=last){
+            alert("chuỗi đối xứng");
+            return check=true;
+        }
+        if (str.charAt(first)==str.charAt(last)){
+            str=str.substring(1,last);
+            return isPalindrome();
+        }else {
+            return check=false;
+        }
+    }
+    let b=isPalindrome();
+    console.log(b);
+
+</script>
+</body>
+</html>

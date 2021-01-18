@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="nhap" placeholder="Tên Sản phẩm">
+<input type="button" value="Thêm mới " onclick="themMoi()">
+<input type="text" id="timkiem" placeholder="Tìm kiếm">
+<input type="button" value="Tìm kiếm" onclick="timKiem()">
+<p id="hienThi"></p>
+<script>
+    let danhSachSP = ["iphone", "Nokia", "SamSung"];
+    hienThi();
+
+    function hienThi() {
+        let tableString = '<table border="1" style="border-collapse: separate">\n' +
+            '    <tr>\n' +
+            '        <th>STT</th>\n' +
+            '        <th>TênSP</th>\n' +
+            '        <th>Sửa</th>\n' +
+            '        <th>Xóa</th>\n' +
+            '    </tr>';
+        for (let i = 0; i < danhSachSP.length; i++) {
+            tableString += '<tr>\n' +
+                '        <td>' + (i + 1) + '</td>\n' +
+                '        <td>' + danhSachSP[i] + '</td>\n' +
+                '        <td> <button onclick="suaSP(' + i + ')">Sửa</button></td>\n' +
+                '        <td><button onclick="xoaSP(' + i + ')">Xóa</button></td>\n' +
+                '    </tr>';
+        }
+        tableString += '</table>';
+        document.getElementById("hienThi").innerHTML = tableString;
+    }
+
+    function xoaSP(id) {
+        let xacNhanXoa = confirm("Bạn có muốn xóa " + danhSachSP[id]);
+        if (xacNhanXoa) {
+            danhSachSP.splice(id, 1);
+        }
+        hienThi();
+    }
+
+    function suaSP(id) {
+        let tenSPMoi = prompt("Bạn nhập tên sp mới");
+        if (tenSPMoi) {
+            danhSachSP[id] = tenSPMoi;
+        }
+        hienThi();
+    }
+
+    function themMoi() {
+        let tenSP = document.getElementById("nhap").value;
+        if (tenSP != "") {
+            danhSachSP.push(tenSP);
+        } else {
+            alert("bạn cần phải nhâp tên")
+        }
+        document.getElementById("nhap").value = "";
+        hienThi();
+    }
+
+    function timKiem() {
+        let a = document.getElementById("timkiem").value;
+        let j = 0;
+        if (a) {
+            for (let i = 0; i < danhSachSP.length; i++) {
+                if (a == danhSachSP[i]) {
+                    alert("sản phẩm bạn tìm có STT là: " + (i + 1));
+                    document.getElementById("timkiem").value = "";
+                    j++;
+                    break;
+                }
+            }
+            if (j == 0) {
+                alert("không tìm thấy sản phẩm");
+                document.getElementById("timkiem").value = "";
+            }
+        }
+
+    }
+
+</script>
+</body>
+</html>

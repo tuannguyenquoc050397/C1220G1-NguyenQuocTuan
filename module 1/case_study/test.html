@@ -7,52 +7,54 @@
     </style>
 </head>
 <body>
-<table>
-    <tr>
-        <td>Họ và tên</td><td><input type="text" id="name" value=""></td>
-    </tr><tr>
-    <td>Số cmnd</td><td><input type="text" id="cmnd" value=""></td>
-</tr><tr>
-    <td>Ngày sinh</td><td><input type="text" id="dayofbirth" value="" ></td>
-</tr><tr>
-    <td>Địa chỉ</td><td><input type="text" id="address" value=""></td>
-</tr><tr>
-    <td>Thẻ Vip</td><td><input type="text" id="vip" value=""></td>
-</tr><tr>
-    <td>Giảm giá</td><td><input type="text" id="giamgia" value=""></td>
-</tr><tr>
-    <td>Số người</td><td><input type="text" id="songuoi" value=""></td>
-</tr><tr>
-    <td>Số ngày thuê</td><td><input type="text" id="ngaythue" value=""></td>
-</tr><tr>
-    <td>loại dịch vụ</td><td><input type="text" id="dichvu" value=""></td>
-</tr><tr>
-    <td>loại phòng</td><td><input type="text" id="phong" value=""></td>
-</tr>
-</table>
+<button type="button" onclick="add()">ADD Customers</button>
+<button type="button" onclick="del()">DEL Customers</button>
+
+<table id="1"></table>
+<script src="full_case1.js">
+</script>
 <script>
-    let name=prompt("Please, enter your name: ");
-    document.getElementById("name").value=name;
-    let cmnd=prompt("Please, enter your CMND: ");
-    document.getElementById("name").value=name;
-    let dayofbirth=prompt("Please, enter your dayofbirth");
-    document.getElementById("name").value=name;
-    let address=prompt("Please, enter your address");
-    document.getElementById("name").value=name;
-    let typeCustomer=prompt("Please, enter độ vip của bạn");
-    document.getElementById("name").value=name;
-    let coupon=prompt("Please, enter your coupon(phiếu giảm giá hehe)");
-    document.getElementById("name").value=name;
-    let soluong=prompt("Bạn đi bao nhiêu người ạ?");
-    document.getElementById("name").value=name;
-    let dayRents=parseInt(prompt("Bạn muốn ở đây bao lâu?"));
-    document.getElementById("name").value=name;
-    let typeSevvice=prompt("Bạn muốn dùng loại dịch vụ nào?");
-    document.getElementById("name").value=name;
-    let typeRoom=prompt("Bạn muốn loại phòng nào?")
-    document.getElementById("name").value=name;
-    let giaDichvu=parseInt((typeSevvice=="Villa")?500:(typeSevvice=="House")?300:100);
-    console.log(giaDichvu);
+
+    let n;
+    let arrCustomer=[];
+    function add(){
+        n=parseInt(prompt("nhập số lượng khách hàng muốn thêm"));
+         let data= "";
+        for (let i=0;i<n;i++) {
+            arrCustomer[i] = new Array(3);
+        }
+        for (let i=0;i<n;i++){
+            arrCustomer[i][0] = nameCustomer();
+            arrCustomer[i][1]= cmndCustomer();
+            arrCustomer[i][2]= birthdayCustomer();
+             data+="<tr><td>"+"khách hàng thứ "+(i+1)+": "+arrCustomer[i]+"</td></tr>"
+        }
+    }
+    console.log(arrCustomer);
+    // function del() {
+    //      alert("nhap ten Customer muon xoa");
+    //     let m=nameCustomer();
+    //      for (let i=0; i<n; i++){
+    //         if(arrCustomer[i][0]==m){
+    //                 arrCustomer.splice(i,1);
+    //         }else{
+    //             alert("Customer ko co trong danh sach");
+    //         }
+    //     }
+    //     console.log(arrCustomer);
+    //
+    // }
+
+    // let arr=new Array(2);
+    // arr[0]=new Array(2);
+    // arr[1]=new Array(2);
+    // arr[0][0]="1";
+    // arr[0][1]="1";
+    // arr[1][0]=12/12/1212;
+    // arr[1][1]=1;
+    // console.log(arr);
+
+
 </script>
 </body>
 </html>

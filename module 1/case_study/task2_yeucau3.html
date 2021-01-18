@@ -6,6 +6,7 @@
 </head>
 <body>
 <script>
+function nameCustomer() {
     let UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ ';
     let LOWER = 'abcdefghijklmnopqrstuvwxyz ';
     let name;
@@ -31,9 +32,9 @@
     } while (!check);
     let index=LOWER.indexOf(name.charAt(0));
     if (index!=-1){
-      let  vietHoaChuDau=name.charAt(0).toUpperCase();
-      let xoaChuDau=name.slice(1);
-      name=vietHoaChuDau+xoaChuDau;
+        let  vietHoaChuDau=name.charAt(0).toUpperCase();
+        let xoaChuDau=name.slice(1);
+        name=vietHoaChuDau+xoaChuDau;
     };
     let arrName=[];
     for(let i=0;i<name.length;i++){
@@ -41,38 +42,38 @@
     }
     let viTriKyTuInHoa=0;
     let a=arrName.length;
-   for (let i=1;i<a;i++){
-       if(arrName[i]==" " && arrName[i+1]==" "){
-               arrName.splice(i,1);
-               i--;
-       }else if(arrName[i]==" " && arrName[i+1]!=" "){
+    for (let i=1;i<a;i++){
+        if(arrName[i]==" " && arrName[i+1]==" "){
+            arrName.splice(i,1);
+            i--;
+        }else if(arrName[i]==" " && arrName[i+1]!=" "){
             arrName[i+1]=arrName[i+1].toUpperCase();
-       }
-   }
-   // let arrName=["Q","Q","Q","Q"," ","Q","Q","Q"," ","Q","Q","Q"]
+        }
+    }
     a=arrName.length;
-   let bienDem=0;
-   for (let i=0;i<a;i++){
-       if (arrName[i]==" "){
-           for (let j=i;j>i-bienDem;j--){
-               arrName[j]=arrName[j].toLowerCase();
-           }
+    let bienDem=0;
+    for (let i=0;i<a;i++){
+        if (arrName[i]==" "){
+            for (let j=i;j>i-bienDem;j--){
+                arrName[j]=arrName[j].toLowerCase();
+            }
             bienDem=0;
-       }else{
-           bienDem++;
-       }
-   }
-   for (let i=a;i>0;i--){
-       if(arrName[i]==" "){
-           for (let j=i+2; j<a;j++){
-               arrName[j]=arrName[j].toLowerCase();
-           }
-           break;
-       }
-   }
-   let strName=arrName.join("");
-   alert(strName);
-
+        }else{
+            bienDem++;
+        }
+    }
+    for (let i=a;i>0;i--){
+        if(arrName[i]==" "){
+            for (let j=i+2; j<a;j++){
+                arrName[j]=arrName[j].toLowerCase();
+            }
+            break;
+        }
+    }
+    let strName=arrName.join("");
+    alert(strName);
+    return strName;
+}
 </script>
 </body>
 </html>
