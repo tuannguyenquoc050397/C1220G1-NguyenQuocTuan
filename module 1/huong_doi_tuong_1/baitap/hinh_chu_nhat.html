@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="500" height="250" style="border:1px solid #d3d3d3;"></canvas>
+<script>
+class Rectangle{
+    constructor(width,heigth) {
+        this.width=width;
+        this.heigth=heigth;
+    }
+    setWidth(width){
+        this.width=width;
+    }
+    setHeigth(heigth){
+        this.heigth=heigth;
+    }
+    getWidth(){
+        return this.width;
+    }
+    getHeigth(){
+        return this.heigth;
+    }
+    area(){
+        return this.heigth*this.width;
+    }
+    perimeter(){
+        return 2*(this.width+this.heigth);
+    }
+    createRectangle(){
+        var ctx=document.getElementById("myCanvas").getContext("2d");
+        ctx.moveTo(0,0);
+        ctx.lineTo(this.width,0);
+        ctx.moveTo(this.width,0);
+        ctx.lineTo(this.width,this.heigth);
+        ctx.moveTo(this.width,this.heigth);
+        ctx.lineTo(0,this.heigth);
+        ctx.moveTo(0,this.heigth);
+        ctx.lineTo(0,0);
+        ctx.stroke();
+    }
+}
+let retangle1= new Rectangle(50,100);
+retangle1.createRectangle();
+alert(retangle1.area());
+alert(retangle1.perimeter());
+retangle1.setHeigth(125);
+retangle1.setWidth(75);
+retangle1.getHeigth();
+retangle1.getWidth();
+alert(retangle1.area());
+alert(retangle1.perimeter());
+</script>
+</body>
+</html>

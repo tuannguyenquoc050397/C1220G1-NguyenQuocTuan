@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Temperator{
+        constructor(c) {
+            this.c=c;
+        }
+        getC(){
+            return this.c;
+        }
+        setC(c){
+            this.c=c;
+        }
+        changeCF(){
+            return this.c/10;
+        }
+        changeCK(){
+            return this.c+273;
+        }
+    }
+    let temperator1=new Temperator(25)
+    alert(temperator1.changeCF());
+    alert(temperator1.changeCK());
+</script>
+</body>
+</html>

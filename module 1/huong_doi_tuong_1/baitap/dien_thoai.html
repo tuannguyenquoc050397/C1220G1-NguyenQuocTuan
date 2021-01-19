@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>Iphone</td>
+        <td><input type="text" id="iphone"></td>
+        <td><button id="iphonecheck" type="button" onclick="">ON</button></td>
+        <td><button id="iphonesoanthao" type="button" onclick="iphone.setSoanThao('iphone')">Lưu</button></td>
+        <td><button id="iphonegui" type="button" onclick="iphone.setHopThuGui('iphone')">Gửi</button></td>
+        <td><button id="iphonenhan" type="button" onclick="samsung.setDocTinNhan()">Đọc tin nhắn</button></td>
+    </tr>
+    <tr>
+        <td>Samsung</td>
+        <td><input type="text" id="samsung"></td>
+        <td><button id="samsungcheck" type="button" onclick="">ON</button></td>
+        <td><button id="samsungsoanthao" type="button" onclick="samsung.setSoanThao('samsung')">Lưu</button></td>
+        <td><button id="samsunggui" type="button" onclick="samsung.setHopThuGui('samsung')">Gửi</button></td>
+        <td><button id="samsungnhan" type="button" onclick="iphone.setDocTinNhan()">Đọc tin nhắn</button></td>
+        <td id="2"></td>
+    </tr>
+    <tr>
+        <td><button onclick="samsung.show('ss')">showSS</button></td>
+        <td id="ss"></td>
+        <td><button onclick="iphone.show('ip')">showIP</button></td>
+        <td id="ip"></td>
+    </tr>
+</table>
+<script>
+    class Mobile{
+        constructor(pin,) {
+            this.pin=pin;
+            this.arrSoanThao=[];
+            this.countSoanThao=0;
+            this.arrHopThuDen=[];
+            this.countHopThuDen=0;
+            this.arrHopThuGui=[];
+            this.countHopThuGui=0;
+            this.check;
+            this.tinNhanGui;
+        }
+        setPin(pin){
+            this.pin=pin;
+        }
+        getPin(){
+            return this.pin;
+        }
+        setSoanThao(id){
+            this.arrSoanThao1=document.getElementById(id).value;
+            this.arrSoanThao[this.countSoanThao]=this.arrSoanThao1;
+            this.countSoanThao++;
+            document.getElementById(id).value="";
+        }
+        getSoanThao(){
+            return this.arrSoanThao;
+        }
+        setHopThuDen(){
+        }
+        getHopThuDen(){
+        }
+        setHopThuGui(id){
+            this.tinNhanGui=document.getElementById(id).value;
+            document.getElementById(id).value="";
+            this.arrHopThuGui.push(this.tinNhanGui);
+        }
+        getHopThuGui(){
+        }
+        setDocTinNhan(){
+            if(this.tinNhanGui!="") {
+                alert("đã nhận được tin nhắn");
+                alert("tin nhắn là: "+this.tinNhanGui);
+            }else {
+                alert("hãy gửi tin nhắn");
+            }
+            this.arrHopThuDen.push(this.tinNhanGui);
+        }
+        setCheck(){
+
+        }
+        show(id){
+            let data="";
+            for(let i=0; i<this.arrSoanThao.length;i++){
+                data+=" "+this.arrSoanThao[i];
+            }
+            document.getElementById(id).innerText=data;
+        }
+    }
+    let iphone=new Mobile(100);
+    let samsung=new Mobile(100);
+
+</script>
+</body>
+</html>
