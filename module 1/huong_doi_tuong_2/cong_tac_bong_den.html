@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class SwitchButton{
+        constructor() {
+            // this.lamp=lamp;
+            this.status=false;
+        }
+        connectToLamp(lamp){
+        if(this.status){
+            lamp.turnOn();
+        }else {
+            lamp.turnOff();
+        }
+        }
+        switchOff(){
+        return this.status=false;
+        }
+        switchOn(){
+        return this.status=true;
+        }
+    }
+    class ElectricLamp{
+        constructor(status) {
+            this.status=status;
+        }
+        turnOn(){
+        alert("lighting");
+        }
+        turnOff(){
+        alert("Not lighting")
+        }
+    }
+
+    let lamp1=new ElectricLamp("bat");
+    let switch1=new SwitchButton();
+    switch1.switchOn();
+    console.log(switch1.connectToLamp(lamp1));
+
+</script>
+</body>
+</html>
