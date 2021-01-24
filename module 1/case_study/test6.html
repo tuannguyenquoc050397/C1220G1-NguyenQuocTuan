@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function giamGia() {
+        let giamGia;
+        let checkdR=false;
+        do{
+            giamGia=prompt("+Nhập phiếu giảm giá"+"\n"+"+Ví dụ: 10, 15, 20 (đơn vị %)"+"\n"+"+Nhập 10, 20 thôi đừng nhập % vào bắt nhập lại đó");
+            if (giamGia>0){
+                alert("oke dung roi");
+                checkdR=false
+            }else {
+                alert("hay nhap lai");
+                checkdR=true;
+            }
+        }while (checkdR);
+        giamGia=parseInt(giamGia);
+        return giamGia;
+    }
+    giamGia();
+
+</script>
+</body>
+</html>

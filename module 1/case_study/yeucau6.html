@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="displayCustomers1(arr)">ấn</button>
+<p id="1"></p>
+<p id="2"></p>
+<!--<script src="full_case1.js">-->
+
+<!--</script>-->
+<script>
+    class Customer{
+        constructor(q,w,e,r,t,y,u,i,o,p,a) {
+            this.ten=q;
+            this.cmnd=w;
+            this.ngaySinh=e;
+            this.email=r;
+            this.diaChi=t;
+            this.loaiCustomer=y;
+            this.giamGia=u;
+            this.soLuong=i;
+            this.soNgay=o;
+            this.loaiDV=p;
+            this.loaiPhong=a;
+            // this.ten=nameCustomer();
+            // this.cmnd=cmndCustomer();
+            // this.ngaySinh=birthdayCustomer();
+            // this.email=emailCustomer();
+            // this.diaChi=diaChi();
+            // this.loaiCustomer=loaiCustomer();
+            // this.giamGia=giamGia();
+            // this.soLuong=nguoiDiCung();
+            // this.soNgay=dayRents();
+            // this.loaiDV=loaiDV();
+            // this.loaiPhong=loaiPhong();
+        }
+        getTen(){
+            return this.ten;
+        }
+        setTen(ten){
+            this.ten=ten;
+        }
+        getCMND(){
+            return this.cmnd;
+        }
+        setCMND(cmnd){
+            this.cmnd=cmnd;
+        }
+        getNgaySinh(){
+            return this.ngaySinh;
+        }
+        setNgaySinh(ngaySinh){
+            this.ngaySinh=ngaySinh;
+        }
+        getEmail(){
+            return this.email;
+        }
+        setEmail(email){
+            this.email=email;
+        }
+        getDiaChi(){
+            return this.diaChi;
+        }
+        setDiaChi(diaChi){
+            this.diaChi=diaChi;
+        }
+        getLoaiCustomer(){
+            return this.loaiCustomer;
+        }
+        setLoaiCustomer(loaiCustomer){
+            this.loaiCustomer=loaiCustomer;
+        }
+        getGiamGia(){
+            return this.giamGia;
+        }
+        setGiamGia(giamGia){
+            this.giamGia=giamGia;
+        }
+        getSoLuong(){
+            return this.soLuong;
+        }
+        setSoLuong(soLuong){
+            this.soLuong=soLuong;
+        }
+        getSoNgay(){
+            return this.soNgay;
+        }
+        setSoNgay(soNgay){
+            this.soNgay=soNgay;
+        }
+        getLoaiDV(){
+            return this.loaiDV;
+        }
+        setLoaiDV(loaiDV){
+            this.loaiDV=loaiDV;
+        }
+        getLoaiPhong(){
+            return this.loaiPhong;
+        }
+        setLoaiPhong(loaiPhong){
+            this.loaiPhong=loaiPhong;
+        }
+        tinhTien(){
+            let giamGiakhac;
+            let giaDichvu;
+            if (this.diaChi="Đà Nẵng"){
+                giamGiakhac=20;
+            }else if(this.diaChi="Huế"){
+                giamGiakhac=10;
+            }else if(this.diaChi="Quảng Nam"){
+                giamGiakhac=5;
+            }else{
+                giamGiakhac=0;
+            }
+            if (this.soNgay>=2&&this.soNgay<=4){
+                giamGiakhac=giamGiakhac+10;
+            }else if(this.soNgay>4&&this.soNgay<=7){
+                giamGiakhac=giamGiakhac+20;
+            }else if(this.soNgay>7){
+                giamGiakhac=giamGiakhac+30;
+            }else {
+                giamGiakhac=giamGiakhac;
+            }
+            switch (this.loaiCustomer) {
+                case "Diamond":
+                    giamGiakhac=giamGiakhac+15;
+                    break;
+                case "Platium":
+                    giamGiakhac=giamGiakhac+10;
+                    break;
+                case "Gold":
+                    giamGiakhac=giamGiakhac+5;
+                    break;
+                case "Silver":
+                    giamGiakhac=giamGiakhac+2;
+                    break;
+                default:
+                    giamGiakhac=giamGiakhac;
+            }
+            switch (this.loaiDV) {
+                case "Villa":
+                    giaDichvu=500;
+                    break;
+                case "House":
+                    giaDichvu=300;
+                    break;
+                case "Room":
+                    giaDichvu=100;
+                    break;
+            }
+
+            let result=giaDichvu*this.soNgay*(1-this.giamGia/100)-giamGiakhac;
+            let tongGiamgia=giamGiakhac+(this.giamGia/100)*this.soNgay*giaDichvu;
+        return document.getElementById("2").innerText=result+" "+tongGiamgia;
+        }
+    }
+    let at=new Customer("a","a","a","a","Đà Nẵng","Gold",20,2,6,"Room","VIP");
+    let ft=new Customer("f","a","a","a","Đà Nẵng","Gold",10,2,4,"Room","VIP");
+    let gt=new Customer("g","a","a","a","Đà Nẵng","Gold",10,2,4,"Room","VIP");
+    let bt=new Customer("b","a","a","a","Đà Nẵng","Gold",10,2,4,"Room","VIP");
+    let ct=new Customer("t","a","a","a","Đà Nẵng","Gold",20,2,4,"Room","VIP");
+    let arr=[];
+    arr.push(at);
+    // arr.push(ft);
+    // arr.push(gt);
+    // arr.push(bt);
+     arr.push(ct);
+    function sapXep (danhSach) {
+        danhSach.sort(function (a,b) {
+            let tenA=a.getTen();
+            let tenB=b.getTen();
+            if(tenA<tenB){
+                return -1;
+            }
+            if(tenA>tenB){
+                return 1;
+            }
+            return 0;
+        });
+            return danhSach;
+
+        }
+
+    function displayCustomers1(danhSach) {
+         sapXep(danhSach);
+        let tableString = '<table border="1" style="border-collapse: separate">\n' +
+            '    <tr>\n' +
+            '        <th>STT</th>\n' +
+            '        <th>Tên</th>\n' +
+            '        <th>CMND</th>\n'+
+            '        <th>Ngày Sinh</th>\n' +
+            '        <th>Email</th>\n' +
+            '        <th>Địa chỉ</th>\n' +
+            '        <th>Loại Customer</th>\n' +
+            '        <th>Giảm giá</th>\n' +
+            '        <th>Số lượng đi kèm</th>\n' +
+            '        <th>Số ngày thuê</th>\n' +
+            '        <th>Loại dịch vụ</th>\n' +
+            '        <th>Loại phòng thuê</th>\n' +
+            '        <th>Sửa</th>\n' +
+            '    </tr>';
+        for (let i = 0; i < danhSach.length; i++) {
+            tableString += '<tr>\n' +
+                '        <td>' + (i + 1) + '</td>\n' +
+                '        <td>' + danhSach[i].getTen() + '</td>\n' +
+                '        <td>' + danhSach[i].getCMND() + '</td>\n' +
+                '        <td>' + danhSach[i].getNgaySinh() + '</td>\n' +
+                '        <td>' + danhSach[i].getEmail() + '</td>\n' +
+                '        <td>' + danhSach[i].getDiaChi() + '</td>\n' +
+                '        <td>' + danhSach[i].getLoaiCustomer() + '</td>\n' +
+                '        <td>' + danhSach[i].getGiamGia() + '</td>\n' +
+                '        <td>' + danhSach[i].getSoLuong() + '</td>\n' +
+                '        <td>' + danhSach[i].getSoNgay() + '</td>\n' +
+                '        <td>' + danhSach[i].getLoaiDV() + '</td>\n' +
+                '        <td>' + danhSach[i].getLoaiPhong() + '</td>\n' +
+                '        <td> <button onclick="editCustomer(' + i + ')">Sửa</button></td>\n' +
+                 '        <td> <button onclick="'+danhSach[i].tinhTien()+'">Tổng tiền</button></td>\n' +
+                '        <td id="'+i+'"></td>\n' +
+                '    </tr>';
+        }
+        tableString += '</table>';
+        document.getElementById("1").innerHTML = tableString;
+    }
+
+
+    // let listCustomer=[];
+    // function addNewCustomer1() {
+    //     let arr1=[];
+    //     let n=prompt("so luong");
+    //     for(let i=0;i<n;i++){
+    //         arr1[i]=new Customer(i,"a","a","a","Đà Nẵng","Gold",10,2,4,"Room","VIP");
+    //         listCustomer.push(arr1[i]);
+    //     }
+    // }
+
+</script>
+</body>
+</html>

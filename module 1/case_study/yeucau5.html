@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        td{
+            width: 20px;
+            height: 20px;
+            background: chartreuse;
+        }
+    </style>
 </head>
 <body>
 <table>
@@ -19,7 +26,6 @@
     function displayMainMenu(){
     document.getElementById("2").innerHTML="        <td><button onclick=\"addNewCustomer()\">addNewCustomer</button></td>\n" +
         "        <td><button onclick=\"displayCustomers()\">displayInformationCustome</button></td>\n" +
-        "        <td><button onclick=\"editCustomer()\">editInformationCustomer</button></td>\n" +
         "        <td><button onclick=\"del()\">deleteCustome</button></td>\n" +
         "        <td><button onclick=\"exit()\">exit</button></td>"
     }

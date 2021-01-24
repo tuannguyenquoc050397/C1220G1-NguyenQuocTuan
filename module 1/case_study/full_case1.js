@@ -316,3 +316,112 @@ function del() {
     }
     displayCustomers();
 }
+function diaChi() {
+    let diaChi;
+    let check=false;
+    do{
+        diaChi=prompt("+Nhập địa chỉ:" + "\n" + "+Chọn 1 trong 4: Đà Nẵng-Huế-Quảng Nam-Khác" + "\n"+"+Lưu ý: Nhập sai là nhập lại đó");
+        switch (diaChi) {
+            case "Đà Nẵng":
+                check=true;
+                break;
+            case "Huế":
+                check=true;
+                break;
+            case "Quảng Nam":
+                check=true;
+                break;
+            case "Khác":
+                check=true;
+                break;
+            default:
+                check=false;
+        }
+    }while (!check)
+    return diaChi;
+}
+function loaiCustomer() {
+    let diaChi;
+    let check=false;
+    do{
+        diaChi=prompt("+Nhập thẻ Customer:" + "\n" + "+Chọn 1 trong 5: Diamond-Platinum-Gold-Silver-Member" + "\n"+"+Lưu ý: Nhập sai là nhập lại đó");
+        switch (diaChi) {
+            case "Member":
+                check=true;
+                break;
+            case "Silver":
+                check=true;
+                break;
+            case "Gold":
+                check=true;
+                break;
+            case "Platinum":
+                check=true;
+                break;
+            case "Diamond":
+                check=true;
+                break;
+            default:
+                check=false;
+        }
+    }while (!check)
+    return diaChi;
+}
+function loaiDV() {
+    let diaChi;
+    let check=false;
+    do{
+        diaChi=prompt("+Nhập loại dịch vụ:" + "\n" + "+Chọn 1 trong 3: Villa-House-Room" + "\n"+"+Lưu ý: Nhập sai là nhập lại đó");
+        switch (diaChi) {
+            case "Villa":
+                check=true;
+                break;
+            case "House":
+                check=true;
+                break;
+            case "Room":
+                check=true;
+                break;
+            default:
+                check=false;
+        }
+    }while (!check);
+    return diaChi;
+}
+function loaiPhong() {
+    let diaChi;
+    let check=false;
+    do{
+        diaChi=prompt("+Nhập loại phòng:" + "\n" + "+Chọn 1 trong 3: Vip-Business-Normal" + "\n"+"+Lưu ý: Nhập sai là nhập lại đó");
+        switch (diaChi) {
+            case "Vip":
+                check=true;
+                break;
+            case "Business":
+                check=true;
+                break;
+            case "Normal":
+                check=true;
+                break;
+            default:
+                check=false;
+        }
+    }while (!check);
+    return diaChi;
+}
+function giamGia() {
+    let giamGia;
+    let checkdR=false;
+    do{
+        giamGia=prompt("+Nhập phiếu giảm giá"+"\n"+"+Ví dụ: 10, 15, 20 (đơn vị %)"+"\n"+"+Nhập 10, 20 thôi đừng nhập % vào bắt nhập lại đó");
+        if (giamGia>=0){
+            alert("oke dung roi");
+            checkdR=false
+        }else {
+            alert("hay nhap lai");
+            checkdR=true;
+        }
+    }while (checkdR);
+    giamGia=parseInt(giamGia);
+    return giamGia;
+}
