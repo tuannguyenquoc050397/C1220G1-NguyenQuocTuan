@@ -5,62 +5,146 @@
     <title>Title</title>
 </head>
 <body>
+<input type="button" value="Thêm mới nhân Viên" onclick="themMoiNV();">
+<input type="text" id="tenSearch" placeholder="Search by name"><input type="button" value="Search" onclick="search()">
+<p id="hienThi"></p>
 <script>
-    let cmnd;
-    let checkcmnd=false;
-     do{
-        cmnd=prompt("nhap so cmnd");
-        console.log(cmnd.length);
-    if (cmnd.length==3){
-        if(0<=cmnd&&cmnd<=999){
-            alert("oke dung roi");
-            checkcmnd=false;
-        }else {
-            alert("hay nhap lai");
-            checkcmnd=true;
+    class NhanVien {
+        constructor(maNV, tenNV, ngaySinh, email,) {
+            this.maNV = maNV;
+            this.tenNV = tenNV;
+            this.ngaySinh = ngaySinh;
+            this.email = email;
         }
-    }else {
-        alert("hay nhap lai");
-        checkcmnd=true;
+
+        getMaNV() {
+            return this.maNV;
+        }
+
+        getTenNV() {
+            return this.tenNV;
+        }
+
+        getNgaySinh() {
+            return this.ngaySinh;
+        }
+
+        getEmail() {
+            return this.email;
+        }
+
+        setMaNV(maNV) {
+            this.maNV = maNV;
+        }
+
+        setTenNV(tenNV) {
+            this.tenNV = tenNV;
+        }
+
+        setNgaySinh(ngaySinh) {
+            this.ngaySinh = ngaySinh;
+        }
+
+        setEmail(email) {
+            this.email = email;
+        }
+
+        getInfo() {
+            return "1. Mã NV: " + this.maNV + "\n2. Tên: " + this.tenNV +
+                "\n3. Ngay sinh: " + this.ngaySinh + "\n 4. Email: " + this.email;
+        }
     }
-     }while (checkcmnd);
-    let dayRents;
-    let checkdR=false;
-     do{
-        dayRents=prompt("nhap so ngay thue");
-        if (dayRents>0){
-            alert("oke dung roi");
-            checkdR=false
+    let nv1= new NhanVien("MNV-001", "Chánh","12/12/2020", "chanhtv@gmail.com");
+    let nv2= new NhanVien("MNV-002", "Chánh2","12/12/2020", "chanhtv@gmail.com");
+    let nv3= new NhanVien("MNV-003", "Chánh3","12/12/2020", "chanhtv@gmail.com");
+    let danhSachNV= [];
+    danhSachNV.push(nv1,nv2,nv3);
+    hienThi(danhSachNV);
+    function themMoiNV() {
+        let maNV= prompt(" Nhập mã NV:")
+        let tenNV= prompt(" Nhập tên NV:")
+        let ngaySinh= prompt(" Nhập ngày sinh NV:")
+        let email= prompt(" Nhập email NV:")
+        let nhanVien = new NhanVien(maNV,tenNV,ngaySinh,email);
+        danhSachNV.push(nhanVien);
+        hienThi(danhSachNV);
+    }
+    function xoaNV(id) {
+        let xacNhanXoa = confirm("bạn có muốn xóa nhân viên: "+ danhSachNV[id].getTenNV());
+        if (xacNhanXoa){
+            danhSachNV.splice(id,1);
         }else {
-            alert("hay nhap lai");
-            checkdR=true;
+            alert("bạn không muốn xóa");
         }
-     }while (checkdR);
-    let checkNS = false;
-    do {
-
-        let ngaySinh = prompt("nhap ngay sinh");
-        let ArrayNS = [];
-        for (i = 0; i < ngaySinh.length; i++) {
-            ArrayNS.push(ngaySinh.charAt(i));
+        hienThi(danhSachNV);
+    }
+    function suaThongTin(i) {
+        let chon= prompt(danhSachNV[i].getInfo()+
+            '\n5. Thoát');// hiện thị bảng để chọn tông tin cấn sửa.
+        switch (chon) {
+            case "1":
+                let maNV=prompt("Nhập lại mã nhân viên");
+                danhSachNV[i].setMaNV(maNV);
+                suaThongTin(i);
+                break;
+            case "2":
+                let tenNV =prompt("Nhập lại tên nhân viên")
+                danhSachNV[i].setTenNV(tenNV);
+                suaThongTin(i);
+                break;
+            case "3":
+                let ngaySinh= prompt("Nhập lại ngày sinh nhân viên")
+                danhSachNV[i].setNgaySinh(ngaySinh);
+                suaThongTin(i);
+                break;
+            case "4":
+                let email = prompt("Nhập lại email nhân viên")
+                danhSachNV[i].setEmail(email);
+                suaThongTin(i);
+                break;
+            case "5":
+                break;
+            default:
+                alert("bạn chưa chọn đúng. Chọn lại");
+                suaThongTin(i);
         }
-        if (ngaySinh.length == 10) {
-            let thang=ArrayNS[3]+ArrayNS[4];
-            console.log(thang);
-            if (ArrayNS[0] <=3 && ArrayNS[1] >= 0 && ArrayNS[2] == "/" && thang<=12 && ArrayNS[5] >= "/" && ArrayNS[6] >= 0 && ArrayNS[7] >= 0 && ArrayNS[8] >= 0 && ArrayNS[9] >= 0) {
-                alert("oke dung roi")
-                checkNS = false;
-            } else {
-                alert("hay nhap lai");
-                checkNS = true;
+        hienThi(danhSachNV);
+    }
+    function search() {
+        let dsSearch=[];
+        let nameSearch = document.getElementById("tenSearch").value;
+        for (let i =0;i< danhSachNV.length;i++){
+            if (danhSachNV[i].getTenNV().includes(nameSearch)){
+                dsSearch.push(danhSachNV[i]);
             }
-        } else {
-            alert("hay nhap lai");
-            checkNS = true;
         }
-    } while (checkNS);
-let email=prompt("nhap email");
-
+        hienThi(dsSearch);
+    }
+    function hienThi(danhSach) {
+        let bang = '<table border="1">\n' +
+            '    <tr>\n' +
+            '        <th>STT</th>\n' +
+            '        <th>MãNV</th>\n' +
+            '        <th>TênNV</th>\n' +
+            '        <th>Ngày Sinh</th>\n' +
+            '        <th>Email</th>\n' +
+            '        <th>Sửa</th>\n' +
+            '        <th>Xóa</th>\n' +
+            '    </tr>';
+        for (let i = 0; i < danhSach.length; i++) {
+            bang += ' <tr>\n' +
+                '        <td>' + (i + 1) + '</td>\n' +
+                '        <td>' + danhSach[i].getMaNV() + '</td>\n' +
+                '        <td>' + danhSach[i].getTenNV() + '</td>\n' +
+                '        <td>' + danhSach[i].getNgaySinh() + '</td>\n' +
+                '        <td>' + danhSach[i].getEmail() + '</td>\n' +
+                '        <td><button onclick="suaThongTin(' + i + ')">Sửa</button></td>\n' +
+                '        <td><button onclick="xoaNV(' + i + ')">Xóa</button></td>\n' +
+                '    </tr>';
+        }
+        bang += '</table>';
+        document.getElementById("hienThi").innerHTML = bang;
+    }
 
 </script>
 </body>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="1"></p>
+<script src="full_case1.js">
+</script>
+<script>
+    class Employee{
+        constructor(ten,cmnd,ngaySinh,email,diaChi,viTri) {
+            this.ten=ten;
+            this.cmnd=cmnd;
+            this.ngaySinh=ngaySinh;
+            this.email=email;
+            this.diaChi=diaChi;
+            this.viTri=viTri;
+        }
+        getTen(){
+            return this.ten;
+        }
+        setTen(ten){
+            this.ten=ten;
+        }
+        getCMND(){
+            return this.cmnd;
+        }
+        setCMND(cmnd){
+            this.cmnd=cmnd;
+        }
+        getNgaySinh(){
+            return this.ngaySinh;
+        }
+        setNgaySinh(ngaySinh){
+            this.ngaySinh=ngaySinh;
+        }
+        getEmail(){
+            return this.email;
+        }
+        setEmail(email){
+            this.email=email;
+        }
+        getDiaChi(){
+            return this.diaChi;
+        }
+        setDiaChi(diaChi){
+            this.diaChi=diaChi;
+        }
+        getViTri(){
+            return this.viTri;
+        }
+        setViTri(viTri){
+            this.viTri=viTri;
+        }
+        salaryOfEmployee(){
+            let salary=0;
+            switch (this.viTri) {
+                case "Manager":
+                    salary=500+"$";
+                break;
+                case "Sale":
+                    salary=300+"$";
+                    break;
+                case "Marketing":
+                    salary=200+"$";
+                    break;
+            }
+            return salary;
+        }
+        thongTin(){
+            return "1. Tên: " + this.ten + "\n2. CMND: " + this.cmnd +
+                "\n3. Ngay sinh: " + this.ngaySinh + "\n 4. Email: " + this.email
+                + "\n 5. Địa chỉ: " + this.diaChi+ "\n 6. Vị trí: " + this.viTri;
+        }
+
+    }
+    let listEmployees=[];
+    let employee1=new Employee("Nguyen EmA","10615015","12/12/2000","a@gmail.com","Đà Nẵng","Manager");
+    let employee2=new Employee("Nguyen EmB","10615016","12/12/2000","a@gmail.com","Đà Nẵng","Sale");
+    let employee3=new Employee("Nguyen EmC","10615017","12/12/2000","a@gmail.com","Đà Nẵng","Marketing");
+    listEmployees.push(employee1,employee2,employee3);
+    displayEmployee(listEmployees);
+    function sapXep (danhSach) {
+        danhSach.sort(function (a,b) {
+            let tenA=a.getTen();
+            let tenB=b.getTen();
+            if(tenA<tenB){
+                return -1;
+            }
+            if(tenA>tenB){
+                return 1;
+            }
+            return 0;
+        });
+        return danhSach;
+
+    }
+
+    function addNewEmployee(){
+        let arr1=[];
+        let n=prompt("so luong");
+        for(let i=0;i<n;i++){
+            let ten=nameCustomer();
+            let cmnd=cmndCustomer();
+            let ngaySinh=birthdayCustomer();
+            let email=emailCustomer();
+            let diaChi=diaChiJS();
+            arr1[i]=new Customer(ten,cmnd,ngaySinh,email,diaChi);
+            listEmployees.push(arr1[i]);
+        }
+    }
+    function displayEmployee(danhSach) {
+        sapXep(danhSach);
+        let tableString = '<table border="1" style="border-collapse: separate">\n' +
+            '    <tr>\n' +
+            '        <th>STT</th>\n' +
+            '        <th>Tên</th>\n' +
+            '        <th>CMND</th>\n'+
+            '        <th>Ngày Sinh</th>\n' +
+            '        <th>Email</th>\n' +
+            '        <th>Địa chỉ</th>\n' +
+            '        <th>Vị trí</th>\n' +
+            '        <th>Sửa</th>\n' +
+            '        <th>Xóa</th>\n' +
+            '        <th>Lương lậu</th>\n' +
+            '    </tr>';
+        for (let i = 0; i < danhSach.length; i++) {
+            tableString += '<tr>\n' +
+                '        <td>' + (i + 1) + '</td>\n' +
+                '        <td>' + danhSach[i].getTen() + '</td>\n' +
+                '        <td>' + danhSach[i].getCMND() + '</td>\n' +
+                '        <td>' + danhSach[i].getNgaySinh() + '</td>\n' +
+                '        <td>' + danhSach[i].getEmail() + '</td>\n' +
+                '        <td>' + danhSach[i].getDiaChi() + '</td>\n' +
+                '        <td>' + danhSach[i].getViTri() + '</td>\n' +
+                '        <td> <button onclick="editEmployee(' + i + ')">Sửa</button></td>\n' +
+                '        <td> <button onclick="deteleEmployee(' + i + ')">Xóa</button></td>\n' +
+                '        <td> <button onclick="tinhLuong('+i+')">Tổng tiền</button></td>\n' +
+                '    </tr>';
+        }
+        tableString += '</table>';
+        document.getElementById("1").innerHTML = tableString;
+    }
+    function editEmployee(id) {
+        let chon=prompt(' 0. Thoát'+'\n'+listEmployees[id].thongTin());
+        switch (chon) {
+            case "1":
+                let ten=nameCustomer();
+                listEmployees[id].setTen(ten);
+                editEmployee(id);
+                break;
+            case "2":
+                let cmnd=cmndCustomer();
+                listEmployees[id].setCMND(cmnd);
+                editEmployee(id);
+                break;
+            case "3":
+                let ngaySinh=birthdayCustomer();
+                listEmployees[id].setNgaySinh(ngaySinh);
+                editEmployee(id);
+                break;
+            case "4":
+                let email=emailCustomer();
+                listEmployees[id].setEmail(email);
+                editEmployee(id);
+                break;
+            case "5":
+                let diaChi=diaChiJS();
+                listEmployees[id].setDiaChi(diaChi);
+                editEmployee(id);
+                break;
+            case "6":
+                let viTri=viTri();
+                listEmployees[id].setViTri(viTri);
+                editEmployee(id);
+                break;
+            case "0":
+            case "":
+            case null:
+                break;
+            default:
+                alert("Chọn chưa đúng, hãy chọn lại");
+                editEmployee(id)
+
+        }
+        sapXep(listEmployees);
+        displayEmployee(listEmployees);
+    }
+    function viTri() {
+        let viTri;
+        let check=false;
+        do{
+            viTri=prompt("+Nhập vị trí:" + "\n" + "+Chọn 1 trong 3: Manager-Sale-Marketing" + "\n"+"+Lưu ý: Nhập sai là nhập lại đó");
+            switch (viTri) {
+                case "Manager":
+                    check=true;
+                    break;
+                case "Sale":
+                    check=true;
+                    break;
+                case "Marketing":
+                    check=true;
+                    break;
+                default:
+                    check=false;
+            }
+        }while (!check);
+        return viTri;
+    }
+    function deteleEmployee(id) {
+        let a=confirm("bạn muốn xóa?");
+        if(a){
+            listEmployees.splice(id,1);
+            displayEmployee(listEmployees);
+        }
+    }
+function tinhLuong(id) {
+            let salary=0;
+                switch (listEmployees[id].getViTri()) {
+                    case "Manager":
+                        salary=500+"$";
+                        break;
+                    case "Sale":
+                        salary=300+"$";
+                        break;
+                    case "Marketing":
+                        salary=200+"$";
+                        break;
+                }
+                return alert(salary);
+}
+</script>
+</body>
+</html>

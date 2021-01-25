@@ -5,24 +5,389 @@
     <title>Title</title>
 </head>
 <body>
+<button onclick="addNewCustomer1()">Thêm mới</button>
+<p id="1"></p>
+<p id="2"></p>
+<script src="full_case1.js">
+
+</script>
 <script>
-    function giamGia() {
-        let giamGia;
-        let checkdR=false;
-        do{
-            giamGia=prompt("+Nhập phiếu giảm giá"+"\n"+"+Ví dụ: 10, 15, 20 (đơn vị %)"+"\n"+"+Nhập 10, 20 thôi đừng nhập % vào bắt nhập lại đó");
-            if (giamGia>0){
-                alert("oke dung roi");
-                checkdR=false
-            }else {
-                alert("hay nhap lai");
-                checkdR=true;
+    class Customer{
+        constructor(q,w,e,r,t,y,u,i,o,p,a) {
+            this.ten=q;
+            this.cmnd=w;
+            this.ngaySinh=e;
+            this.email=r;
+            this.diaChi=t;
+            this.loaiCustomer=y;
+            this.giamGia=u;
+            this.soLuong=i;
+            this.soNgay=o;
+            this.loaiDV=p;
+            this.loaiPhong=a;
+            // this.ten=nameCustomer();
+            // this.cmnd=cmndCustomer();
+            // this.ngaySinh=birthdayCustomer();
+            // this.email=emailCustomer();
+            // this.diaChi=diaChi();
+            // this.loaiCustomer=loaiCustomer();
+            // this.giamGia=giamGia();
+            // this.soLuong=nguoiDiCung();
+            // this.soNgay=dayRents();
+            // this.loaiDV=loaiDV();
+            // this.loaiPhong=loaiPhong();
+        }
+        getTen(){
+            return this.ten;
+        }
+        setTen(ten){
+            this.ten=ten;
+        }
+        getCMND(){
+            return this.cmnd;
+        }
+        setCMND(cmnd){
+            this.cmnd=cmnd;
+        }
+        getNgaySinh(){
+            return this.ngaySinh;
+        }
+        setNgaySinh(ngaySinh){
+            this.ngaySinh=ngaySinh;
+        }
+        getEmail(){
+            return this.email;
+        }
+        setEmail(email){
+            this.email=email;
+        }
+        getDiaChi(){
+            return this.diaChi;
+        }
+        setDiaChi(diaChi){
+            this.diaChi=diaChi;
+        }
+        getLoaiCustomer(){
+            return this.loaiCustomer;
+        }
+        setLoaiCustomer(loaiCustomer){
+            this.loaiCustomer=loaiCustomer;
+        }
+        getGiamGia(){
+            return this.giamGia;
+        }
+        setGiamGia(giamGia){
+            this.giamGia=giamGia;
+        }
+        getSoLuong(){
+            return this.soLuong;
+        }
+        setSoLuong(soLuong){
+            this.soLuong=soLuong;
+        }
+        getSoNgay(){
+            return this.soNgay;
+        }
+        setSoNgay(soNgay){
+            this.soNgay=soNgay;
+        }
+        getLoaiDV(){
+            return this.loaiDV;
+        }
+        setLoaiDV(loaiDV){
+            this.loaiDV=loaiDV;
+        }
+        getLoaiPhong(){
+            return this.loaiPhong;
+        }
+        setLoaiPhong(loaiPhong){
+            this.loaiPhong=loaiPhong;
+        }
+        tinhTien(){
+            let giamGiakhac;
+            let giaDichvu;
+            if (this.diaChi="Đà Nẵng"){
+                giamGiakhac=20;
+            }else if(this.diaChi="Huế"){
+                giamGiakhac=10;
+            }else if(this.diaChi="Quảng Nam"){
+                giamGiakhac=5;
+            }else{
+                giamGiakhac=0;
             }
-        }while (checkdR);
-        giamGia=parseInt(giamGia);
-        return giamGia;
+            if (this.soNgay>=2&&this.soNgay<=4){
+                giamGiakhac=giamGiakhac+10;
+            }else if(this.soNgay>4&&this.soNgay<=7){
+                giamGiakhac=giamGiakhac+20;
+            }else if(this.soNgay>7){
+                giamGiakhac=giamGiakhac+30;
+            }else {
+                giamGiakhac=giamGiakhac;
+            }
+            switch (this.loaiCustomer) {
+                case "Diamond":
+                    giamGiakhac=giamGiakhac+15;
+                    break;
+                case "Platium":
+                    giamGiakhac=giamGiakhac+10;
+                    break;
+                case "Gold":
+                    giamGiakhac=giamGiakhac+5;
+                    break;
+                case "Silver":
+                    giamGiakhac=giamGiakhac+2;
+                    break;
+                default:
+                    giamGiakhac=giamGiakhac;
+            }
+            switch (this.loaiDV) {
+                case "Villa":
+                    giaDichvu=500;
+                    break;
+                case "House":
+                    giaDichvu=300;
+                    break;
+                case "Room":
+                    giaDichvu=100;
+                    break;
+            }
+
+            let result=giaDichvu*this.soNgay*(1-this.giamGia/100)-giamGiakhac;
+            let tongGiamgia=giamGiakhac+(this.giamGia/100)*this.soNgay*giaDichvu;
+        }
+        getThongTin(){
+            return "1. Tên: " + this.ten + "\n2. CMND: " + this.cmnd +
+                "\n3. Ngay sinh: " + this.ngaySinh + "\n 4. Email: " + this.email
+                + "\n 5. Địa chỉ: " + this.diaChi+ "\n 6. Loại Customer: " + this.loaiCustomer
+                + "\n 7. Phiếu giảm giá: " + this.giamGia+ "\n 8. Số người đi kèm: " + this.soLuong
+                + "\n 9. Số ngày thuê: " + this.soNgay+ "\n 10. Loại dịch vụ: " + this.loaiDV
+                + "\n 11. Loại phòng: " + this.loaiPhong;
+        }
     }
-    giamGia();
+    let at=new Customer("Nguyen A","00000001","12/12/2000","a@gmail.com","Đà Nẵng","Gold",20,2,6,"Room","VIP");
+    let ft=new Customer("Nguyen B","00000002","12/12/2000","a@gmail.com","Đà Nẵng","Gold",10,2,4,"Room","VIP");
+    let gt=new Customer("Nguyen C","00000003","12/12/2000","a@gmail.com","Đà Nẵng","Gold",10,2,4,"Room","VIP");
+    let bt=new Customer("Nguyen D","00000004","12/12/2000","a@gmail.com","Đà Nẵng","Gold",10,2,4,"Room","VIP");
+    let ct=new Customer("Nguyen E","00000005","12/12/2000","a@gmail.com","Đà Nẵng","Gold",20,2,4,"Room","VIP");
+    let arr=[];
+    arr.push(at);
+    arr.push(ft);
+    arr.push(gt);
+    arr.push(bt);
+    arr.push(ct);
+    displayCustomers1(arr);
+    function sapXep (danhSach) {
+        danhSach.sort(function (a,b) {
+            let tenA=a.getTen();
+            let tenB=b.getTen();
+            if(tenA<tenB){
+                return -1;
+            }
+            if(tenA>tenB){
+                return 1;
+            }
+            return 0;
+        });
+        return danhSach;
+
+    }
+
+    function displayCustomers1(danhSach) {
+        sapXep(danhSach);
+        let tableString = '<table border="1" style="border-collapse: separate">\n' +
+            '    <tr>\n' +
+            '        <th>STT</th>\n' +
+            '        <th>Tên</th>\n' +
+            '        <th>CMND</th>\n'+
+            '        <th>Ngày Sinh</th>\n' +
+            '        <th>Email</th>\n' +
+            '        <th>Địa chỉ</th>\n' +
+            '        <th>Loại Customer</th>\n' +
+            '        <th>Giảm giá</th>\n' +
+            '        <th>Số lượng đi kèm</th>\n' +
+            '        <th>Số ngày thuê</th>\n' +
+            '        <th>Loại dịch vụ</th>\n' +
+            '        <th>Loại phòng thuê</th>\n' +
+            '        <th>Sửa</th>\n' +
+            '        <th>Xóa</th>\n' +
+            '        <th>Tính tiền</th>\n' +
+            '    </tr>';
+        for (let i = 0; i < danhSach.length; i++) {
+            tableString += '<tr>\n' +
+                '        <td>' + (i + 1) + '</td>\n' +
+                '        <td>' + danhSach[i].getTen() + '</td>\n' +
+                '        <td>' + danhSach[i].getCMND() + '</td>\n' +
+                '        <td>' + danhSach[i].getNgaySinh() + '</td>\n' +
+                '        <td>' + danhSach[i].getEmail() + '</td>\n' +
+                '        <td>' + danhSach[i].getDiaChi() + '</td>\n' +
+                '        <td>' + danhSach[i].getLoaiCustomer() + '</td>\n' +
+                '        <td>' + danhSach[i].getGiamGia() + '</td>\n' +
+                '        <td>' + danhSach[i].getSoLuong() + '</td>\n' +
+                '        <td>' + danhSach[i].getSoNgay() + '</td>\n' +
+                '        <td>' + danhSach[i].getLoaiDV() + '</td>\n' +
+                '        <td>' + danhSach[i].getLoaiPhong() + '</td>\n' +
+                '        <td> <button onclick="editCustomer6(' + i + ')">Sửa</button></td>\n' +
+                '        <td> <button onclick="deteleCustomer1(' + i + ')">Xóa</button></td>\n' +
+                '        <td> <button onclick="tinhTien('+i+')">Tổng tiền</button></td>\n' +
+                '    </tr>';
+        }
+        tableString += '</table>';
+        document.getElementById("1").innerHTML = tableString;
+    }
+    function editCustomer6(id) {
+        let chon=prompt(' 0. Thoát'+'\n'+arr[id].getThongTin());
+        switch (chon) {
+            case "1":
+                let ten=nameCustomer();
+                arr[id].setTen(ten);
+                editCustomer6(id);
+                break;
+            case "2":
+                let cmnd=cmndCustomer();
+                arr[id].setCMND(cmnd);
+                editCustomer6(id);
+                break;
+            case "3":
+                let ngaySinh=birthdayCustomer();
+                arr[id].setNgaySinh(ngaySinh);
+                editCustomer6(id);
+                break;
+            case "4":
+                let email=emailCustomer();
+                arr[id].setEmail(email);
+                editCustomer6(id);
+                break;
+            case "5":
+                let diaChi=diaChiJS();
+                arr[id].setDiaChi(diaChi);
+                editCustomer6(id);
+                break;
+            case "6":
+                let loaiCustomer=loaiCustomerJS();
+                arr[id].setLoaiCustomer(loaiCustomer);
+                editCustomer6(id);
+                break;
+            case "7":
+                let giamGia=giamGiaJS();
+                arr[id].setGiamGia(giamGia);
+                editCustomer6(id);
+                break;
+            case "8":
+                let soLuong=nguoiDiCung();
+                arr[id].setSoLuong(soLuong);
+                editCustomer6(id);
+                break;
+            case "9":
+                let soNgay=dayRents();
+                arr[id].setSoNgay(soNgay);
+                editCustomer6(id);
+                break;
+            case "10":
+                let loaiDV=loaiDVJS();
+                arr[id].setLoaiDV(loaiDV);
+                editCustomer6(id);
+                break;
+            case "11":
+                let loaiPhong=loaiPhongJS();
+                arr[id].setLoaiPhong(loaiPhong);
+                editCustomer6(id);
+                break;
+            case "0":
+            case "":
+            case null:
+                break;
+            default:
+                alert("Chọn chưa đúng, hãy chọn lại");
+                editCustomer6(id)
+
+        }
+        displayCustomers1(arr);
+    }
+    function tinhTien(id){
+        let giamGiakhac;
+        let giaDichvu;
+        let giamGia=arr[id].getGiamGia();
+        let diaChi=arr[id].getDiaChi();
+        let soNgay=arr[id].getSoNgay();
+        let loaiDV=arr[id].getLoaiDV();
+        let loaiCustomer=arr[id].getLoaiCustomer();
+        if (diaChi="Đà Nẵng"){
+            giamGiakhac=20;
+        }else if(diaChi="Huế"){
+            giamGiakhac=10;
+        }else if(diaChi="Quảng Nam"){
+            giamGiakhac=5;
+        }else{
+            giamGiakhac=0;
+        }
+        if (soNgay>=2&&soNgay<=4){
+            giamGiakhac=giamGiakhac+10;
+        }else if(soNgay>4&&soNgay<=7){
+            giamGiakhac=giamGiakhac+20;
+        }else if(soNgay>7){
+            giamGiakhac=giamGiakhac+30;
+        }else {
+            giamGiakhac=giamGiakhac;
+        }
+        switch (loaiCustomer) {
+            case "Diamond":
+                giamGiakhac=giamGiakhac+15;
+                break;
+            case "Platium":
+                giamGiakhac=giamGiakhac+10;
+                break;
+            case "Gold":
+                giamGiakhac=giamGiakhac+5;
+                break;
+            case "Silver":
+                giamGiakhac=giamGiakhac+2;
+                break;
+            default:
+                giamGiakhac=giamGiakhac;
+        }
+        switch (loaiDV) {
+            case "Villa":
+                giaDichvu=500;
+                break;
+            case "House":
+                giaDichvu=300;
+                break;
+            case "Room":
+                giaDichvu=100;
+                break;
+        }
+        let tongGiamgia=giamGiakhac+(giamGia/100)*soNgay*giaDichvu;
+        let result=giaDichvu*soNgay-tongGiamgia;
+        return alert("Tổng giảm giá: "+ tongGiamgia +"\n"+"Tổng tiền: "+ result);
+    }
+    function addNewCustomer1() {
+        let arr1=[];
+        let n=prompt("so luong");
+        for(let i=0;i<n;i++){
+            let ten=nameCustomer();
+            let cmnd=cmndCustomer();
+            let ngaySinh=birthdayCustomer();
+            let email=emailCustomer();
+            let diaChi=diaChiJS();
+            let loaiCustomer=loaiCustomerJS();
+            let giamGia=giamGiaJS();
+            let soLuong=nguoiDiCung();
+            let soNgay=dayRents();
+            let loaiDV=loaiDVJS();
+            let loaiPhong=loaiPhongJS();
+            arr1[i]=new Customer(ten,cmnd,ngaySinh,email,diaChi,loaiCustomer,giamGia,soLuong,soNgay,loaiDV,loaiPhong);
+            arr.push(arr1[i]);
+        }
+        sapXep(arr);
+        displayCustomers1(arr);
+    }
+    function deteleCustomer1(id) {
+        let a=confirm("bạn muốn xóa?");
+        if(a){
+            arr.splice(id,1);
+            displayCustomers1(arr);
+        }
+    }
 
 </script>
 </body>

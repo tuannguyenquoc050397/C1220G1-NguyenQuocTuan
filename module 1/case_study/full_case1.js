@@ -195,128 +195,128 @@ function emailCustomer() {
     } while (!checkEmail);
     return email;
 }
-let arrCustomer=[];
-let arr=[];
-function addNewCustomer(){
-    let n=parseInt(prompt("nhập số lượng khách hàng muốn thêm"));
-    for(let i=0;i<n;i++) {
-        arr[i]=new Array(11);
-        arr[i][0] = nameCustomer();
-        arr[i][1] = cmndCustomer();
-        arr[i][2] = birthdayCustomer();
-        arr[i][3] = emailCustomer();
-        arr[i][4] = prompt("nhập địa chỉ");
-        arr[i][5] = prompt("nhập loại Customer");
-        arr[i][6] = prompt("nhập phiếu giảm giá");
-        arr[i][7] = nguoiDiCung();
-        arr[i][8] = dayRents();
-        arr[i][9] = prompt("nhập loại dịch vụ");
-        arr[i][10] =prompt("nhập loại phòng thuê");
-        arrCustomer.push(arr[i]);
-    }
-}
-function displayCustomers() {
-    let tableString = '<table border="1" style="border-collapse: separate">\n' +
-        '    <tr>\n' +
-        '        <th>STT</th>\n' +
-        '        <th>Tên</th>\n' +
-        '        <th>CMND</th>\n'+
-        '        <th>Ngày Sinh</th>\n' +
-        '        <th>Email</th>\n' +
-        '        <th>Địa chỉ</th>\n' +
-        '        <th>Loại Customer</th>\n' +
-        '        <th>Giảm giá</th>\n' +
-        '        <th>Số lượng đi kèm</th>\n' +
-        '        <th>Số ngày thuê</th>\n' +
-        '        <th>Loại dịch vụ</th>\n' +
-        '        <th>Loại phòng thuê</th>\n' +
-        '        <th>Sửa</th>\n' +
-        '    </tr>';
-    arrCustomer.sort();
-    for (let i = 0; i < arrCustomer.length; i++) {
-        tableString += '<tr>\n' +
-            '        <td>' + (i + 1) + '</td>\n' +
-            '        <td>' + arrCustomer[i][0] + '</td>\n' +
-            '        <td>' + arrCustomer[i][1] + '</td>\n' +
-            '        <td>' + arrCustomer[i][2] + '</td>\n' +
-            '        <td>' + arrCustomer[i][3] + '</td>\n' +
-            '        <td>' + arrCustomer[i][4] + '</td>\n' +
-            '        <td>' + arrCustomer[i][5] + '</td>\n' +
-            '        <td>' + arrCustomer[i][6] + '</td>\n' +
-            '        <td>' + arrCustomer[i][7] + '</td>\n' +
-            '        <td>' + arrCustomer[i][8] + '</td>\n' +
-            '        <td>' + arrCustomer[i][9] + '</td>\n' +
-            '        <td>' + arrCustomer[i][10] + '</td>\n' +
-            '        <td> <button onclick="editCustomer(' + i + ')">Sửa</button></td>\n' +
-            '    </tr>';
-    }
-    tableString += '</table>';
-    document.getElementById("1").innerHTML = tableString;
-}
-function editCustomer(id) {
-    let a=parseInt(prompt("Bạn muốn sửa thông tin nào?"+"\n"+"" +
-        "1.Tên khách hàng      7.Giảm giá"+"\n"+
-        "2.CMND                     8.Số lượng đi kèm"+"\n"+
-        "3.Ngày sinh                9.Số ngày thuê"+"\n"+
-        "4.Email                       10.Loại dịch vụ"+"\n"+
-        "5.Địa chỉ                     11.Loại phòng thuê"+"\n"+
-        "6.Loại Customer"+"\n"+
-        "Lưu ý: nhập số nguyên từ 1-11 để chọn phần muốn sửa"));
-    if(a==1) {
-        let newName = nameCustomer();
-        arrCustomer[id][0]=newName;
-    }else if (a==2){
-        let newCMND=cmndCustomer();
-        arrCustomer[id][1]=newCMND;
-    }else if (a==3){
-        let newNgaySinh=birthdayCustomer();
-        arrCustomer[id][2]=newNgaySinh;
-    }else if (a==4){
-        let newEmail=emailCustomer();
-        arrCustomer[id][3]=newEmail;
-    }else if (a==5){
-        let newDiaChi=prompt("nhập địa chỉ");
-        arrCustomer[id][4]=newDiaChi;
-    }else if (a==6){
-        let newCustomer=prompt("nhập loại Customer");
-        arrCustomer[id][5]=newCustomer;
-    }else if (a==7){
-        let newGiamGia=prompt("nhập giảm giá");
-        arrCustomer[id][6]=newGiamGia;
-    }else if (a==8){
-        let newSL=prompt("số lượng đi kèm");
-        arrCustomer[id][7]=newSL;
-    }else if (a==9){
-        let newDayRents=dayRents();
-        arrCustomer[id][8]=newDayRents;
-    }else if (a==10){
-        let newDichVu=prompt("loại dịch vụ");
-        arrCustomer[id][9]=newDichVu;
-    }else if (a==11){
-        let newPhong=prompt("loại phòng thuê");
-        arrCustomer[id][10]=newPhong;
-    }else {
-        alert("hãy chọn số từ 1-11!")
-    }
-    displayCustomers();
-}
-function del() {
-    alert("nhap ten Customer muon xoa");
-    let nameDelete=nameCustomer();
-    let countdel=0;
-    for (let i=0; i<arrCustomer.length; i++){
-        if(arrCustomer[i][0]==nameDelete){
-            arrCustomer.splice(i,1);
-            countdel++;
-            break;
-        }
-    }
-    if(countdel==0){
-        alert("ko co ten trong danh sach");
-    }
-    displayCustomers();
-}
-function diaChi() {
+// let arrCustomer=[];
+// let arr=[];
+// function addNewCustomer(){
+//     let n=parseInt(prompt("nhập số lượng khách hàng muốn thêm"));
+//     for(let i=0;i<n;i++) {
+//         arr[i]=new Array(11);
+//         arr[i][0] = nameCustomer();
+//         arr[i][1] = cmndCustomer();
+//         arr[i][2] = birthdayCustomer();
+//         arr[i][3] = emailCustomer();
+//         arr[i][4] = prompt("nhập địa chỉ");
+//         arr[i][5] = prompt("nhập loại Customer");
+//         arr[i][6] = prompt("nhập phiếu giảm giá");
+//         arr[i][7] = nguoiDiCung();
+//         arr[i][8] = dayRents();
+//         arr[i][9] = prompt("nhập loại dịch vụ");
+//         arr[i][10] =prompt("nhập loại phòng thuê");
+//         arrCustomer.push(arr[i]);
+//     }
+// }
+// function displayCustomers() {
+//     let tableString = '<table border="1" style="border-collapse: separate">\n' +
+//         '    <tr>\n' +
+//         '        <th>STT</th>\n' +
+//         '        <th>Tên</th>\n' +
+//         '        <th>CMND</th>\n'+
+//         '        <th>Ngày Sinh</th>\n' +
+//         '        <th>Email</th>\n' +
+//         '        <th>Địa chỉ</th>\n' +
+//         '        <th>Loại Customer</th>\n' +
+//         '        <th>Giảm giá</th>\n' +
+//         '        <th>Số lượng đi kèm</th>\n' +
+//         '        <th>Số ngày thuê</th>\n' +
+//         '        <th>Loại dịch vụ</th>\n' +
+//         '        <th>Loại phòng thuê</th>\n' +
+//         '        <th>Sửa</th>\n' +
+//         '    </tr>';
+//     arrCustomer.sort();
+//     for (let i = 0; i < arrCustomer.length; i++) {
+//         tableString += '<tr>\n' +
+//             '        <td>' + (i + 1) + '</td>\n' +
+//             '        <td>' + arrCustomer[i][0] + '</td>\n' +
+//             '        <td>' + arrCustomer[i][1] + '</td>\n' +
+//             '        <td>' + arrCustomer[i][2] + '</td>\n' +
+//             '        <td>' + arrCustomer[i][3] + '</td>\n' +
+//             '        <td>' + arrCustomer[i][4] + '</td>\n' +
+//             '        <td>' + arrCustomer[i][5] + '</td>\n' +
+//             '        <td>' + arrCustomer[i][6] + '</td>\n' +
+//             '        <td>' + arrCustomer[i][7] + '</td>\n' +
+//             '        <td>' + arrCustomer[i][8] + '</td>\n' +
+//             '        <td>' + arrCustomer[i][9] + '</td>\n' +
+//             '        <td>' + arrCustomer[i][10] + '</td>\n' +
+//             '        <td> <button onclick="editCustomer(' + i + ')">Sửa</button></td>\n' +
+//             '    </tr>';
+//     }
+//     tableString += '</table>';
+//     document.getElementById("1").innerHTML = tableString;
+// }
+// function editCustomer(id) {
+//     let a=parseInt(prompt("Bạn muốn sửa thông tin nào?"+"\n"+"" +
+//         "1.Tên khách hàng      7.Giảm giá"+"\n"+
+//         "2.CMND                     8.Số lượng đi kèm"+"\n"+
+//         "3.Ngày sinh                9.Số ngày thuê"+"\n"+
+//         "4.Email                       10.Loại dịch vụ"+"\n"+
+//         "5.Địa chỉ                     11.Loại phòng thuê"+"\n"+
+//         "6.Loại Customer"+"\n"+
+//         "Lưu ý: nhập số nguyên từ 1-11 để chọn phần muốn sửa"));
+//     if(a==1) {
+//         let newName = nameCustomer();
+//         arrCustomer[id][0]=newName;
+//     }else if (a==2){
+//         let newCMND=cmndCustomer();
+//         arrCustomer[id][1]=newCMND;
+//     }else if (a==3){
+//         let newNgaySinh=birthdayCustomer();
+//         arrCustomer[id][2]=newNgaySinh;
+//     }else if (a==4){
+//         let newEmail=emailCustomer();
+//         arrCustomer[id][3]=newEmail;
+//     }else if (a==5){
+//         let newDiaChi=prompt("nhập địa chỉ");
+//         arrCustomer[id][4]=newDiaChi;
+//     }else if (a==6){
+//         let newCustomer=prompt("nhập loại Customer");
+//         arrCustomer[id][5]=newCustomer;
+//     }else if (a==7){
+//         let newGiamGia=prompt("nhập giảm giá");
+//         arrCustomer[id][6]=newGiamGia;
+//     }else if (a==8){
+//         let newSL=prompt("số lượng đi kèm");
+//         arrCustomer[id][7]=newSL;
+//     }else if (a==9){
+//         let newDayRents=dayRents();
+//         arrCustomer[id][8]=newDayRents;
+//     }else if (a==10){
+//         let newDichVu=prompt("loại dịch vụ");
+//         arrCustomer[id][9]=newDichVu;
+//     }else if (a==11){
+//         let newPhong=prompt("loại phòng thuê");
+//         arrCustomer[id][10]=newPhong;
+//     }else {
+//         alert("hãy chọn số từ 1-11!")
+//     }
+//     displayCustomers();
+// }
+// function del() {
+//     alert("nhap ten Customer muon xoa");
+//     let nameDelete=nameCustomer();
+//     let countdel=0;
+//     for (let i=0; i<arrCustomer.length; i++){
+//         if(arrCustomer[i][0]==nameDelete){
+//             arrCustomer.splice(i,1);
+//             countdel++;
+//             break;
+//         }
+//     }
+//     if(countdel==0){
+//         alert("ko co ten trong danh sach");
+//     }
+//     displayCustomers();
+// }
+function diaChiJS() {
     let diaChi;
     let check=false;
     do{
@@ -337,10 +337,10 @@ function diaChi() {
             default:
                 check=false;
         }
-    }while (!check)
+    }while (!check);
     return diaChi;
 }
-function loaiCustomer() {
+function loaiCustomerJS() {
     let diaChi;
     let check=false;
     do{
@@ -364,10 +364,10 @@ function loaiCustomer() {
             default:
                 check=false;
         }
-    }while (!check)
+    }while (!check);
     return diaChi;
 }
-function loaiDV() {
+function loaiDVJS() {
     let diaChi;
     let check=false;
     do{
@@ -388,7 +388,7 @@ function loaiDV() {
     }while (!check);
     return diaChi;
 }
-function loaiPhong() {
+function loaiPhongJS() {
     let diaChi;
     let check=false;
     do{
@@ -409,18 +409,22 @@ function loaiPhong() {
     }while (!check);
     return diaChi;
 }
-function giamGia() {
+function giamGiaJS() {
     let giamGia;
     let checkdR=false;
     do{
         giamGia=prompt("+Nhập phiếu giảm giá"+"\n"+"+Ví dụ: 10, 15, 20 (đơn vị %)"+"\n"+"+Nhập 10, 20 thôi đừng nhập % vào bắt nhập lại đó");
-        if (giamGia>=0){
-            alert("oke dung roi");
-            checkdR=false
-        }else {
-            alert("hay nhap lai");
-            checkdR=true;
-        }
+if(giamGia){
+    if (giamGia>=0){
+        alert("oke dung roi");
+        checkdR=false
+    }else {
+        alert("hay nhap lai");
+        checkdR=true;
+    }
+}else {
+    checkdR=true;
+}
     }while (checkdR);
     giamGia=parseInt(giamGia);
     return giamGia;
